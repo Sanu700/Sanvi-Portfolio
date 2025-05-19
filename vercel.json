@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "JARVIS.jpg", "use": "@vercel/static" },
+    { "src": "Movie.png", "use": "@vercel/static" },
+    { "src": "avatar.jpg", "use": "@vercel/static" },
+    { "src": "logo.jpg", "use": "@vercel/static" },
+    { "src": "s.png", "use": "@vercel/static" },
+   
+   
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
