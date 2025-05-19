@@ -10,7 +10,7 @@ const Projects = () => {
     {
       title: "AI-Based Voice Assistant",
       description: "JARVIS 1.0 is a smart, interactive personal assistant built to simplify your life. From answering your questions and managing tasks to playing music and controlling your PC, JARVIS is your go-to tech companion.",
-      image: './src/assets/JARVIS.jpg',
+      image: '/JARVIS.jpg',
       detailedDescription: `🧠 Smart AI Features
 ✅ Google Search with Gemini AI – AI-generated answers
 ✅ Auto-Summarization – Short summaries under 50 words
@@ -38,7 +38,7 @@ const Projects = () => {
     {
       title: "Multispeciality Hospital Website",
       description: "A modern, responsive website for Shree Surgical Hospital that integrates essential features like Google Maps, one-click phone dialing, and an appointment booking system (in progress). Aiming to improve patient convenience and hospital accessibility.",
-      image: './src/assets/logo.jpg',
+      image: '/logo.jpg',
       detailedDescription: `🏥 Key Features:
       ✅ 📍 Google Maps integration – Find the hospital’s exact location with a click!
       ✅ 📞 Direct Phone Link – One tap to call and get assistance instantly.
@@ -58,7 +58,7 @@ const Projects = () => {
     {
       title: "CINEPEDIA: A Movie Blogging Website",
       description: "A dynamic movie blogging platform where users can log in via Google OAuth, rate movies, share reviews, and interact with fellow movie lovers. It provides an interactive and engaging space for all movie enthusiasts.",
-      image: './src/assets/Movie.png',
+      image: '/Movie.png',
       detailedDescription: `🎬 Key Features:
           ✅ 🏷️ Google OAuth Integration – Easy login with Google to access all features.
           ✅ ⭐️ Movie Rating – Users can rate movies on a scale and share their thoughts.
