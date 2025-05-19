@@ -51,7 +51,7 @@ const About = () => {
   transition={{ duration: 1 }}
 >
       <img
-        src="/src/assets/avatar.jpg" // Adjust path if needed
+        src="/avatar.jpg" // Adjust path if needed
         alt="Sanvi"
         className="w-72 h-72 object-cover border-4 border-gray-300 dark:border-gray-600 shadow-xl rounded-xl"
        />
