@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "./ui/buttons";
 import { ArrowRight, Mail } from "lucide-react";
-import avatar from "../assets/avatar.jpg";
+import avatar from "/avatar.jpg";
 
 export default function HeroSection() {
   return (
