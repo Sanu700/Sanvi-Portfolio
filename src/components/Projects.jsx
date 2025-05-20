@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
-
-// Import your images relative to this file's location
-import JARVISImage from '/JARVIS.jpg';
-import HospitalLogo from '/logo.jpg';
-import MovieImage from '/Movie.png';
+import { X } from 'lucide-react'; // Using Lucide icon pack (best lightweight)
 
 const Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,7 +10,7 @@ const Projects = () => {
     {
       title: "AI-Based Voice Assistant",
       description: "JARVIS 1.0 is a smart, interactive personal assistant built to simplify your life. From answering your questions and managing tasks to playing music and controlling your PC, JARVIS is your go-to tech companion.",
-      image: JARVISImage,
+      image: '/JARVIS.jpg',
       detailedDescription: `🧠 Smart AI Features
 ✅ Google Search with Gemini AI – AI-generated answers
 ✅ Auto-Summarization – Short summaries under 50 words
@@ -43,44 +38,44 @@ const Projects = () => {
     {
       title: "Multispeciality Hospital Website",
       description: "A modern, responsive website for Shree Surgical Hospital that integrates essential features like Google Maps, one-click phone dialing, and an appointment booking system (in progress). Aiming to improve patient convenience and hospital accessibility.",
-      image: HospitalLogo,
+      image: '/logo.jpg',
       detailedDescription: `🏥 Key Features:
-✅ 📍 Google Maps integration – Find the hospital’s exact location with a click!
-✅ 📞 Direct Phone Link – One tap to call and get assistance instantly.
-✅ 📅 Appointment Booking – Conveniently book your next appointment (still in progress)!
-✅ 📱 Mobile-Friendly – Fully responsive design that works perfectly on all devices.
-✅ 🖥️ Clean and Professional UI – Built using HTML, CSS, JavaScript, Bootstrap, and Node.js.
-
-🛠️ Technologies Used:
-- Frontend: HTML, CSS, JavaScript, Bootstrap
-- Backend: Node.js
-
-📈 Planned Future Additions:
-- 🔒 Complete Appointment Booking System
-- 👩‍⚕️ Patient Login & Signup Portal
-- 🏥 Admin Dashboard for Hospital Staff to manage patient appointments`,
+      ✅ 📍 Google Maps integration – Find the hospital’s exact location with a click!
+      ✅ 📞 Direct Phone Link – One tap to call and get assistance instantly.
+      ✅ 📅 Appointment Booking – Conveniently book your next appointment (still in progress)!
+      ✅ 📱 Mobile-Friendly – Fully responsive design that works perfectly on all devices.
+      ✅ 🖥️ Clean and Professional UI – Built using HTML, CSS, JavaScript, Bootstrap, and Node.js.
+      
+      🛠️ Technologies Used:
+      - Frontend: HTML, CSS, JavaScript, Bootstrap
+      - Backend: Node.js
+      
+      📈 Planned Future Additions:
+      - 🔒 Complete Appointment Booking System
+      - 👩‍⚕️ Patient Login & Signup Portal
+      - 🏥 Admin Dashboard for Hospital Staff to manage patient appointments`,
     },
     {
       title: "CINEPEDIA: A Movie Blogging Website",
       description: "A dynamic movie blogging platform where users can log in via Google OAuth, rate movies, share reviews, and interact with fellow movie lovers. It provides an interactive and engaging space for all movie enthusiasts.",
-      image: MovieImage,
+      image: '/Movie.png',
       detailedDescription: `🎬 Key Features:
-✅ 🏷️ Google OAuth Integration – Easy login with Google to access all features.
-✅ ⭐️ Movie Rating – Users can rate movies on a scale and share their thoughts.
-✅ 💬 Reviews – Write and read movie reviews shared by others.
-✅ 🎥 Movie Search – Explore the latest movies and their details.
-✅ 📱 Mobile-Friendly – A responsive design ensuring a seamless experience across devices.
-
-🛠️ Technologies Used:
-- Frontend: HTML, CSS, JavaScript, React
-- Backend: Node.js
-- Authentication: Google OAuth
-- Database: PostgreSQL
-
-📈 Planned Future Additions:
-- 🔒 User Profile Customization
-- 📝 Comment and Reply System for Reviews
-- 🎥 Movie Watchlists & Personalized Recommendations`,
+          ✅ 🏷️ Google OAuth Integration – Easy login with Google to access all features.
+          ✅ ⭐️ Movie Rating – Users can rate movies on a scale and share their thoughts.
+          ✅ 💬 Reviews – Write and read movie reviews shared by others.
+          ✅ 🎥 Movie Search – Explore the latest movies and their details.
+          ✅ 📱 Mobile-Friendly – A responsive design ensuring a seamless experience across devices.
+          
+          🛠️ Technologies Used:
+          - Frontend: HTML, CSS, JavaScript, React
+          - Backend: Node.js
+          - Authentication: Google OAuth
+          - Database: PostgreSQL
+          
+          📈 Planned Future Additions:
+          - 🔒 User Profile Customization
+          - 📝 Comment and Reply System for Reviews
+          - 🎥 Movie Watchlists & Personalized Recommendations`,
     },
   ];
 
@@ -150,7 +145,6 @@ const Projects = () => {
             <button
               onClick={closeModal}
               className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-red-500"
-              aria-label="Close Modal"
             >
               <X size={24} />
             </button>
