@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "vite.config.*",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "images": {
+    "domains": ["yourdomain.com", "anotherdomain.com"],
+    "minimumCacheTTL": 3600,
+    "formats": ["image/avif", "image/webp"]
+  }
+}
