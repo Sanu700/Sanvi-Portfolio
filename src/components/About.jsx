@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import avatar from '/avatar.jpg'; // adjust the path as needed
 
 const About = () => {
   return (
@@ -13,7 +12,7 @@ const About = () => {
     >
       <div className="max-w-6xl w-full flex flex-col-reverse lg:flex-row items-center gap-12">
         
-        {/* Text Section */}
+        {/* ✅ Original Unchanged Description */}
         <motion.div
           className="text-left max-w-2xl"
           initial={{ x: -100, opacity: 0 }}
@@ -38,18 +37,26 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Image Section */}
+        {/* ✅ Square Image on Right */}
         <motion.div
-          className="flex-shrink-0 ml-20"
+          className="flex-shrink-0"
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <img
-            src={avatar}
-            alt="Sanvi"
-            className="w-72 h-72 object-cover border-4 border-gray-300 dark:border-gray-600 shadow-xl rounded-xl"
-          />
+          <motion.div
+  className="flex-shrink-0 ml-20"  // Added left margin to push image right
+  initial={{ x: 100, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  transition={{ duration: 1 }}
+>
+      <img
+        src="/avatar.jpg" // Adjust path if needed
+        alt="Sanvi"
+        className="w-72 h-72 object-cover border-4 border-gray-300 dark:border-gray-600 shadow-xl rounded-xl"
+       />
+</motion.div>
+
         </motion.div>
       </div>
     </motion.section>
