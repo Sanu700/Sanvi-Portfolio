@@ -1,12 +1,14 @@
 /* src/index.css */
 
+/* ✅ Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
 
+/* ✅ Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom fonts */
+/* ✅ Custom Font Classes */
 .font-pacifico {
   font-family: 'Pacifico', cursive;
 }
@@ -15,15 +17,17 @@
   font-family: 'Poppins', sans-serif;
 }
 
-
-
-/* You can also add custom styles here */
+/* ✅ Global HTML Settings */
 html {
   scroll-behavior: smooth;
+  text-size-adjust: 100%;           /* Standard */
+  -webkit-text-size-adjust: 100%;   /* iOS Safari & some legacy WebKit */
 }
-/* Custom Styling for Navbar */
+
+
+/* ✅ Navbar Styling (if not using Tailwind nav components) */
 .navbar {
-  background-color: #343a40 !important; /* Dark background */
+  background-color: #343a40; /* Dark background */
 }
 
 .navbar-brand {
@@ -33,12 +37,12 @@ html {
 
 .nav-link {
   font-size: 1.1rem;
-  color: white !important;
+  color: white;
   margin-right: 20px;
 }
 
 .nav-link:hover {
-  color: #f8f9fa !important;
+  color: #f8f9fa;
   text-decoration: underline;
 }
 
@@ -50,6 +54,8 @@ button {
   font-size: 1.1rem;
   border-radius: 50px;
 }
+
+/* ✅ Cherry Blossom Flower Animation */
 .flower {
   position: absolute;
   top: -10%;
@@ -76,9 +82,8 @@ button {
     transform: rotate(360deg);
   }
 }
-/* Light mode gradient background */
-/* Light mode gradient background - darker shades */
-/* Stronger darker light mode gradient */
+
+/* ✅ Stronger Light Mode Gradient Background */
 .bg-light-gradient {
   background: linear-gradient(
     90deg,
@@ -88,8 +93,7 @@ button {
   );
 }
 
-
-/* Dark mode gradient background (unchanged) */
+/* ✅ Dark Mode Gradient Background */
 .bg-dark-gradient {
   background: linear-gradient(
     90deg,
