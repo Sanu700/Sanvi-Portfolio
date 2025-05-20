@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
 // Import your images relative to this file's location
-import JARVISImage from '../assets/JARVIS.jpg';
-import HospitalLogo from '../assets/logo.jpg';
-import MovieImage from '../assets/Movie.png';
+import JARVISImage from '/JARVIS.jpg';
+import HospitalLogo from '/logo.jpg';
+import MovieImage from '/Movie.png';
 
 const Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
