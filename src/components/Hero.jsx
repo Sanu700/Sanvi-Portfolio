@@ -45,21 +45,22 @@ export default function HeroSection() {
           I build powerful websites with creativity, clean design, and scalable code.
         </p>
 
-        <div className="flex gap-4 justify-center lg:justify-start">
-          <a href="#projects">
-            <Button className="text-white bg-blue-600 hover:bg-blue-700">
-              View Work <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </a>
-          <a href="#contact">
-            <Button
-              variant="outline"
-              className="text-gray-700 dark:text-gray-300 border-gray-400 dark:border-gray-600"
-            >
-              <Mail className="mr-2 h-4 w-4" /> Contact Me
-            </Button>
-          </a>
-        </div>
+        <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+  <a href="#projects" className="inline-flex">
+    <Button className="flex items-center text-white bg-blue-600 hover:bg-blue-700">
+      View Work <ArrowRight className="ml-2 h-4 w-4" />
+    </Button>
+  </a>
+  <a href="#contact" className="inline-flex">
+    <Button
+      variant="outline"
+      className="flex items-center text-gray-700 dark:text-gray-300 border-gray-400 dark:border-gray-600"
+    >
+      <Mail className="mr-2 h-4 w-4" /> Contact Me
+    </Button>
+  </a>
+</div>
+
       </motion.div>
 
       {/* Right side - Avatar Image */}
