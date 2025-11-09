@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 const Navbar = ({ toggleTheme, isDarkMode }) => {
   const navLinks = [
     { label: "About", href: "#about" },
-    { label: "Highlights", href: "#highlights" }, // added
     { label: "Projects", href: "#projects" },
+    { label: "Journey", href: "#journey" },
     { label: "Contact", href: "#contact" },
   ];
 
