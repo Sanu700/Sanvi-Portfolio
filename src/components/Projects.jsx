@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 
 const Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -9,174 +9,181 @@ const Projects = () => {
   const projects = [
     {
       title: "Slash Experiences",
-      description:
-        "A full-stack platform for event bookings, payments, and collaboration. Built for fast performance and seamless user experience.",
+      description: `A <b>full-stack platform</b> for event bookings, payments, and collaboration. Built for <b>fast performance</b> and seamless user experience.`,
       image: "/slash.jpg",
-      detailedDescription: `🏗️ Overview:
-Slash Experiences is a full-stack event platform enabling real-time booking, payment integration, and smooth team coordination.
+      detailedDescription: `🏗️ <b>Overview:</b><br />
+Slash Experiences is a <b>full-stack event platform</b> enabling real-time booking, payment integration, and smooth team coordination.
+<br /><br />
 
-✨ Key Features:
-✅ Razorpay integration for secure payments
-✅ User authentication & session management
-✅ Responsive React interface with modern UI
-✅ PostgreSQL + Supabase backend for scalability
-✅ Admin dashboards & booking analytics
+✨ <b>Key Features:</b><br />
+<ul style="list-style:none;padding:0;margin:10px 0 25px 0;text-align:left;display:inline-block;">
+  <li style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+    ✅ <span><b>Razorpay integration</b> for secure payments</span>
+  </li>
+  <li style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+    ✅ <span><b>User authentication & session management</b></span>
+  </li>
+  <li style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+    ✅ <span><b>Responsive React interface</b> with modern UI</span>
+  </li>
+  <li style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+    ✅ <span><b>PostgreSQL + Supabase backend</b> for scalability</span>
+  </li>
+  <li style="display:flex;align-items:center;gap:8px;">
+    ✅ <span><b>Admin dashboards & booking analytics</b></span>
+  </li>
+</ul>
 
-🛠 Tech Stack:
+<br />
+
+🧰 <b>Tech Stack:</b><br />
 React, Supabase, PostgreSQL, Node.js, Razorpay API, CSS3
 
-🚀 Future Scope:
-Add recommendation system & AI-driven event analytics.`,
+<br /><br />
+
+🚀 <b>Future Scope:</b><br />
+Add recommendation system & AI-driven event analytics.
+`,
+      liveLink: "https://slashexperiences.in/",
+      githubLink: "https://github.com/Sanu700/Slash",
     },
     {
-      title: "Zerocostwater Automation Platform",
-      description:
-        "Workflow automation system integrating APIs, n8n, and Zapier for optimized process management.",
+      title: "Zerocostwater",
+      description: `Workflow <b>automation system</b> integrating APIs, <b>n8n</b>, and Zapier for optimized process management.`,
       image: "/zerocost.png",
-      detailedDescription: `🔧 Key Features:
-✅ Automated data pipelines with n8n
-✅ Real-time process tracking dashboard
-✅ REST API integration with Node.js
-✅ Modular backend workflows
+      detailedDescription: `🔧 <b>Key Features:</b><br/>
+✅ Automated data pipelines with <b>n8n</b><br/>
+✅ Real-time process tracking dashboard<br/>
+✅ REST API integration with <b>Node.js</b><br/>
+✅ Modular backend workflows<br/><br/>
 
-🧰 Tech Stack:
-React, Node.js, PostgreSQL, n8n, Zapier
+🧰 <b>Tech Stack:</b> React, Node.js, PostgreSQL, n8n, Zapier<br/><br/>
 
-🚀 Planned Upgrades:
-IoT integration & predictive maintenance analytics.`,
+🚀 <b>Planned Upgrades:</b> IoT integration & predictive maintenance analytics.`,
+      liveLink: "https://zerocost-water.lovable.app/",
     },
     {
-      title: "Jarvis 2.0 – AI Voice Assistant",
-      description:
-        "An advanced voice assistant integrating Gemini AI, automating PC controls, and managing tasks.",
+      title: "Jarvis 1.0 – AI Voice Assistant",
+      description: `An advanced <b>AI voice assistant</b> integrating <b>Gemini AI</b>, automating PC controls, and managing tasks.`,
       image: "/JARVIS.jpg",
-      detailedDescription: `🧠 Smart AI:
-✅ Gemini AI for intelligent responses
-✅ Conversational memory & context handling
+      detailedDescription: `🧠 <b>Smart AI:</b><br/>
+✅ <b>Gemini AI</b> for intelligent responses<br/>
+✅ Conversational memory & context handling<br/><br/>
 
-💻 System Control:
-✅ Open websites, apps, and manage PC volume
-✅ Weather, news, to-do management
+💻 <b>System Control:</b><br/>
+✅ Open websites, apps, and manage PC volume<br/>
+✅ Weather, news, to-do management<br/><br/>
 
-🎵 Media:
-✅ Play music via Spotify & YouTube
+🎵 <b>Media:</b><br/>
+✅ Play music via <b>Spotify & YouTube</b><br/><br/>
 
-🛠 Tech:
-Python, Gemini API, SpeechRecognition, SQLite
+🛠 <b>Tech:</b> Python, Gemini API, SpeechRecognition, SQLite<br/><br/>
 
-🚀 Future Upgrades:
-Wake-word detection, PDF summarizer, mini-games.`,
+🚀 <b>Future Upgrades:</b> Wake-word detection, PDF summarizer, mini-games.`,
+      githubLink: "https://github.com/Sanu700/JARVIS-1.0",
     },
     {
       title: "Cinepedia",
-      description:
-        "A full-stack movie blogging and review platform with Google OAuth and interactive user engagement.",
+      description: `A <b>movie blogging</b> and review platform with <b>Google OAuth</b> and interactive user engagement.`,
       image: "/Movie.png",
-      detailedDescription: `🎬 Features:
-✅ Google OAuth login
-✅ Movie rating & reviews
-✅ Responsive design across devices
-✅ Dynamic content rendering
+      detailedDescription: `🎬 <b>Features:</b><br/>
+✅ <b>Google OAuth</b> login<br/>
+✅ Movie rating & reviews<br/>
+✅ Responsive design across devices<br/>
+✅ Dynamic content rendering<br/><br/>
 
-🛠 Stack:
-React, Node.js, PostgreSQL, Google OAuth
+🛠 <b>Stack:</b> React, Node.js, PostgreSQL, Google OAuth<br/><br/>
 
-📈 Future Plans:
-User profiles, comment threads, and personalized recommendations.`,
+📈 <b>Future Plans:</b> User profiles, comment threads, and personalized recommendations.`,
+      liveLink: "https://movie-reviews-blogging-website.vercel.app/",
+      githubLink: "https://github.com/Sanu700/Movie-Reviews-Blogging-Website",
     },
     {
       title: "Task Dashboard",
-      description:
-        "A productivity web app designed with gamification elements to enhance user focus and efficiency.",
+      description: `A <b>productivity web app</b> with <b>gamification elements</b> to enhance user focus and efficiency.`,
       image: "/task.webp",
-      detailedDescription: `📋 Key Features:
-✅ Custom task boards with progress tracking
-✅ Gamified streak system
-✅ Timers & reminders for better productivity
+      detailedDescription: `📋 <b>Key Features:</b><br/>
+✅ Custom task boards with progress tracking<br/>
+✅ Gamified streak system<br/>
+✅ Timers & reminders for better productivity<br/><br/>
 
-🧰 Tech:
-React, JavaScript, CSS3
+🧰 <b>Tech:</b> React, JavaScript, CSS3<br/><br/>
 
-🚀 Future:
-Sync with Google Calendar & mobile app.`,
+🚀 <b>Future:</b> Sync with Google Calendar & mobile app.`,
+      liveLink: "https://task-dash.netlify.app/",
+      githubLink: "https://github.com/Sanu700/task-dashboard",
     },
     {
       title: "Shree Surgical Hospital Website",
-      description:
-        "Responsive website designed to improve hospital accessibility and appointment booking convenience.",
+      description: `A <b>responsive hospital website</b> improving accessibility and <b>appointment booking</b> convenience.`,
       image: "/logo.jpg",
-      detailedDescription: `🏥 Highlights:
-✅ Google Maps integration
-✅ One-click call functionality
-✅ Appointment booking (in-progress)
-✅ Responsive design with Bootstrap
+      detailedDescription: `🏥 <b>Highlights:</b><br/>
+✅ Google Maps integration<br/>
+✅ One-click call functionality<br/>
+✅ Appointment booking (in-progress)<br/>
+✅ Responsive design with Bootstrap<br/><br/>
 
-🛠 Stack:
-HTML, CSS, JavaScript, Bootstrap, Node.js
+🛠 <b>Stack:</b> HTML, CSS, JavaScript, Bootstrap, Node.js<br/><br/>
 
-🚀 Future:
-Admin dashboard & patient portal.`,
+🚀 <b>Future:</b> Admin dashboard & patient portal.`,
+      liveLink: "https://shreesurgicalhospital.vercel.app/",
+      githubLink: "https://github.com/Sanu700/Shree-Surgical-Hospital",
     },
     {
       title: "EVM Web Simulator",
-      description:
-        "Interactive web-based simulation of an electronic voting machine (EVM) using Web3 concepts.",
+      description: `Interactive <b>web-based simulation</b> of an <b>electronic voting machine (EVM)</b> using Web3 concepts.`,
       image: "/evm.jpg",
-      detailedDescription: `⚡ Features:
-✅ Simulated vote casting interface
-✅ Real-time result display
-✅ Blockchain-inspired design concept
+      detailedDescription: `⚡ <b>Features:</b><br/>
+✅ Simulated vote casting interface<br/>
+✅ Real-time result display<br/>
+✅ Blockchain-inspired design concept<br/><br/>
 
-🧰 Stack:
-HTML, CSS, JavaScript, Web3 basics
+🧰 <b>Stack:</b> HTML, CSS, JavaScript, Web3 basics<br/><br/>
 
-🚀 Future:
-Smart contract-based validation.`,
+🚀 <b>Future:</b> Smart contract-based validation.`,
+      liveLink: "https://hikmatdada1.vercel.app/",
+      githubLink: "https://github.com/Sanu700/EVM",
     },
     {
       title: "Android Apps Analysis",
-      description:
-        "A data analytics project exploring insights from Play Store app data using Python libraries.",
+      description: `A <b>data analytics project</b> exploring insights from Play Store app data using Python libraries.`,
       image: "/data.png",
-      detailedDescription: `📊 Key Features:
-✅ Data cleaning, visualization & regression
-✅ Insights into category-wise ratings & installs
-✅ Matplotlib & Seaborn for visual analysis
+      detailedDescription: `📊 <b>Key Features:</b><br/>
+✅ Data cleaning, visualization & regression<br/>
+✅ Insights into category-wise ratings & installs<br/>
+✅ Matplotlib & Seaborn for visual analysis<br/><br/>
 
-🧠 Stack:
-Python, Pandas, Seaborn, Scikit-learn
+🧠 <b>Stack:</b> Python, Pandas, Seaborn, Scikit-learn<br/><br/>
 
-🚀 Future:
-Dashboard-based visualization with Streamlit.`,
+🚀 <b>Future:</b> Dashboard-based visualization with Streamlit.`,
+      githubLink: "https://github.com/Sanu700/Google-Play-Store-App-Analytics",
     },
     {
       title: "Simon Game & Drumkit",
-      description:
-        "Mini JS-based rhythm and memory games demonstrating event handling and sound APIs.",
+      description: `<b>Mini JS-based rhythm and memory games</b> demonstrating <b>event handling</b> and sound APIs.`,
       image: "/simon.png",
-      detailedDescription: `🎮 Features:
-✅ Simon Game – color pattern memory challenge
-✅ Drumkit – playable music kit via keyboard
-✅ Interactive sounds & animations
+      detailedDescription: `🎮 <b>Features:</b><br/>
+✅ Simon Game – color pattern memory challenge<br/>
+✅ Drumkit – playable music kit via keyboard<br/>
+✅ Interactive sounds & animations<br/><br/>
 
-🧰 Stack:
-JavaScript, HTML, CSS`,
+🧰 <b>Stack:</b> JavaScript, HTML, CSS`,
+      liveLink: "https://simonchallenge.vercel.app/",
+      githubLink: "https://github.com/Sanu700/Simon-Game",
     },
     {
       title: "Data Analytics Series",
-      description:
-        "A set of analytical notebooks exploring LEGO, Nobel Prize, and Google Trends datasets.",
+      description: `A set of <b>analytical notebooks</b> exploring LEGO, Nobel Prize, and Google Trends datasets.`,
       image: "/analytics.jpg",
-      detailedDescription: `📈 Includes:
-✅ LEGO dataset analysis – popularity vs price
-✅ Nobel Prize data visualization
-✅ Google Trends & language usage analytics
+      detailedDescription: `📈 <b>Includes:</b><br/>
+✅ LEGO dataset analysis – popularity vs price<br/>
+✅ Nobel Prize data visualization<br/>
+✅ Google Trends & language usage analytics<br/><br/>
 
-🧠 Stack:
-Python, Pandas, Seaborn, Matplotlib
+🧠 <b>Stack:</b> Python, Pandas, Seaborn, Matplotlib<br/><br/>
 
-🚀 Future:
-Convert notebooks to interactive dashboards.`,
+🚀 <b>Future:</b> Convert notebooks to interactive dashboards.`,
+      githubLink: "https://github.com/Sanu700/Data-Analytics",
     },
   ];
 
@@ -191,30 +198,49 @@ Convert notebooks to interactive dashboards.`,
   };
 
   return (
-    <motion.section
+    <section
       id="projects"
-      className="min-h-screen bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 py-12 px-6"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      className="min-h-screen py-20 px-6 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:bg-gradient-to-r dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
-      {/* Heading */}
-      <div className="text-center">
-        <h2 className="text-3xl font-semibold text-gray-900 dark:text-white">My Projects</h2>
-        <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">
-          A collection of my favorite projects — from AI and automation to data analytics and design.
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white flex items-center justify-center gap-3 mt-4 mb-6 px-4">
+  My Projects
+  <span className="text-black dark:text-gray-200 text-5xl">💼</span>
+</h2>
+
+
+        <p className="mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          A collection of my favorite projects — from{" "}
+          <span className="font-semibold text-blue-600 dark:text-blue-400">
+            AI & automation
+          </span>{" "}
+          to{" "}
+          <span className="font-semibold text-purple-600 dark:text-purple-300">
+            data analytics
+          </span>{" "}
+          and design.
         </p>
-      </div>
+      </motion.div>
 
       {/* Project Grid */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg flex flex-col items-center p-6 transform hover:scale-105 transition-all"
-            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            onClick={() => openModal(project)}
+            className="relative group rounded-3xl p-6 backdrop-blur-lg bg-white/70 dark:bg-gray-800/60 border border-white/40 dark:border-gray-700 shadow-lg hover:shadow-2xl hover:-translate-y-2 transform transition-all cursor-pointer flex flex-col items-center"
           >
-            <div className="w-40 h-40 rounded-full overflow-hidden mb-6">
+            <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden mb-6 flex items-center justify-center border-2 border-purple-300 dark:border-purple-500 shadow-inner group-hover:scale-105 transition-transform">
               <img
                 src={project.image}
                 alt={project.title}
@@ -222,16 +248,49 @@ Convert notebooks to interactive dashboards.`,
               />
             </div>
 
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white text-center">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-2">
               {project.title}
             </h3>
-            <p className="mt-4 text-center text-gray-700 dark:text-gray-300">
-              {project.description}
-            </p>
+
+            {/* ✅ bold support in short desc */}
+            <p
+              className="text-center text-gray-700 dark:text-gray-300 text-sm leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: project.description }}
+            />
+
+     <div className="flex gap-4 mt-5">
+  {project.liveLink && (
+    <a
+      href={project.liveLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+      onClick={(e) => e.stopPropagation()}
+    >
+      🌐 Live
+    </a>
+  )}
+  {project.githubLink && (
+    <a
+      href={project.githubLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+      onClick={(e) => e.stopPropagation()}
+    >
+      💻 Code
+    </a>
+  )}
+</div>
+
+
 
             <button
-              onClick={() => openModal(project)}
-              className="mt-6 text-blue-600 dark:text-blue-400 hover:underline"
+              className="mt-5 px-5 py-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-medium rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-transform"
+              onClick={(e) => {
+                e.stopPropagation();
+                openModal(project);
+              }}
             >
               Learn More
             </button>
@@ -240,25 +299,67 @@ Convert notebooks to interactive dashboards.`,
       </div>
 
       {/* Modal */}
-      {isModalOpen && selectedProject && (
-        <div className="modal fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50 z-50">
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg max-w-lg w-full relative overflow-y-auto max-h-[80vh]">
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-red-500"
-            >
-              <X size={24} />
-            </button>
-            <h3 className="text-3xl font-semibold text-gray-900 dark:text-white">
-              {selectedProject.title}
-            </h3>
-            <p className="mt-4 whitespace-pre-line text-lg text-gray-700 dark:text-gray-300">
-              {selectedProject.detailedDescription}
-            </p>
-          </div>
-        </div>
-      )}
-    </motion.section>
+      <AnimatePresence>
+        {isModalOpen && selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 flex justify-center items-center bg-black/60 z-50 p-4 overflow-auto"
+          >
+        <motion.div
+  initial={{ scale: 0.9, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  exit={{ scale: 0.9, opacity: 0 }}
+  transition={{ duration: 0.3 }}
+  className="relative bg-gradient-to-br from-white via-purple-50 to-blue-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-900 rounded-3xl max-w-3xl w-[90%] sm:w-full p-6 sm:p-8 shadow-2xl text-center overflow-y-auto max-h-[90vh]"
+>
+  <button
+    onClick={closeModal}
+    className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-red-500 transition"
+  >
+    <X size={26} />
+  </button>
+
+  <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent mb-4">
+    {selectedProject.title}
+  </h3>
+
+  <div
+    className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto px-2 sm:px-0"
+    dangerouslySetInnerHTML={{
+      __html: selectedProject.detailedDescription,
+    }}
+  />
+
+  <div className="mt-8 flex justify-center gap-4 flex-wrap">
+    {selectedProject.liveLink && (
+      <a
+        href={selectedProject.liveLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-5 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500 text-white rounded-full font-medium hover:scale-105 transition-transform"
+      >
+        🌐 Live Demo
+      </a>
+    )}
+    {selectedProject.githubLink && (
+      <a
+        href={selectedProject.githubLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="px-5 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-indigo-400 to-blue-500 text-white rounded-full font-medium hover:scale-105 transition-transform"
+      >
+        💻 GitHub
+      </a>
+    )}
+  </div>
+</motion.div>
+
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 };
 

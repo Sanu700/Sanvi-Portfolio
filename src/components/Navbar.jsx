@@ -3,32 +3,39 @@ import { motion } from "framer-motion";
 
 const Navbar = ({ toggleTheme, isDarkMode }) => {
   const navLinks = [
-    { label: "About Me", href: "#about" },
-    { label: "My Projects", href: "#projects" },
-    { label: "Contact Me", href: "#contact" },
+    { label: "About", href: "#about" },
+    { label: "Highlights", href: "#highlights" }, // added
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
   ];
 
   const [active, setActive] = useState("#hero");
 
   return (
     <motion.nav
-      className="w-full py-4 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:bg-gradient-to-r dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 shadow-md fixed top-0 left-0 z-50"
+      className={`w-full py-4 fixed top-0 left-0 z-50 backdrop-blur-lg shadow-md transition-all duration-500 
+        ${isDarkMode
+          ? "bg-[rgba(20,20,30,0.7)]"
+          : "bg-[rgba(255,255,255,0.7)]"
+        }`}
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="max-w-screen-xl mx-auto flex justify-between items-center px-6">
+        
         {/* Logo */}
         <a
           href="#hero"
           onClick={() => setActive("#hero")}
-          className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight hover:text-blue-700 transition-colors duration-300"
+          className="text-2xl sm:text-3xl font-extrabold tracking-tight 
+          text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 hover:opacity-90 transition-opacity duration-300"
         >
-          Sanvi Udhan
+          Sanvi&nbsp;Udhan
         </a>
 
-        {/* Navigation Links */}
-        <ul className="hidden md:flex space-x-6">
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex items-center space-x-4 lg:space-x-8">
           {navLinks.map((link, index) => (
             <motion.li
               key={link.href}
@@ -39,17 +46,14 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
               <a
                 href={link.href}
                 onClick={() => setActive(link.href)}
-                className={`cursor-pointer px-5 py-3 rounded-full font-extrabold text-lg transition-colors duration-300
-                  ${
-                    active === link.href
-                      ? isDarkMode
-                        ? "bg-pink-500 text-white shadow-lg"
-                        : "bg-purple-600 text-white shadow-lg"
-                      : isDarkMode
-                      ? "bg-transparent text-gray-300 hover:bg-pink-300 hover:text-white"
-                      : "bg-transparent text-gray-700 hover:bg-purple-200 hover:text-purple-800"
-                  }
-                `}
+                className={`px-4 py-2 rounded-full font-semibold text-[1.05rem] transition-all duration-300
+                ${
+                  active === link.href
+                    ? "bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg scale-105"
+                    : isDarkMode
+                    ? "text-gray-300 hover:text-white hover:bg-[rgba(255,255,255,0.1)]"
+                    : "text-gray-800 hover:text-purple-700 hover:bg-[rgba(200,200,255,0.2)]"
+                }`}
               >
                 {link.label}
               </a>
@@ -57,10 +61,11 @@ const Navbar = ({ toggleTheme, isDarkMode }) => {
           ))}
         </ul>
 
-        {/* Theme Toggle Button */}
+        {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="ml-6 bg-gray-200 dark:bg-gray-700 p-2 rounded-full hover:scale-110 transition-transform duration-300"
+          className="ml-4 p-2 rounded-full text-lg hover:scale-110 transition-transform duration-300 
+          bg-gradient-to-r from-purple-100 to-pink-100 dark:from-gray-700 dark:to-gray-800"
           aria-label="Toggle Theme"
         >
           {isDarkMode ? "🌙" : "☀️"}
