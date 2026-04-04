@@ -1,14 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Briefcase,
-  Code,
-  Trophy,
-  Star,
-  Palette,
-  Camera,
-  Mic,
-} from "lucide-react";
+import { Briefcase, Code, Trophy, Star, Palette, Camera, Mic } from "lucide-react";
 
 const Journey = () => {
   const timeline = [
@@ -16,19 +8,14 @@ const Journey = () => {
       year: "2025",
       title: "Full-Stack Developer Intern – Slash Experiences",
       icon: <Briefcase size={22} />,
-      description: `💻 <b>Built a full-stack event booking & collaboration platform</b> from scratch using <b>React, Supabase, Node.js, and Razorpay API</b>.  
-• Developed a <b>secure booking & payment system</b>, improving reliability and reducing drop-offs.  
-• Enhanced UX with a <b>modern profile page</b> and interactive social features.  
-• Optimized logic for <b>25% faster load times</b> and smoother responsiveness.`,
+      description: `💻 <b>Built a full-stack event booking & collaboration platform</b> from scratch using <b>React, Supabase, Node.js, and Razorpay API</b>.<br/>• Developed a <b>secure booking & payment system</b>, improving reliability and reducing drop-offs.<br/>• Enhanced UX with a <b>modern profile page</b> and interactive social features.<br/>• Optimized logic for <b>25% faster load times</b> and smoother responsiveness.`,
       side: "left",
     },
     {
       year: "2025",
       title: "Workflow Automation Intern – Zerocostwater Platform",
       icon: <Code size={22} />,
-      description: `⚙️ Worked on <b>end-to-end process automation</b> using <b>n8n, Zapier, and REST APIs</b>.  
-• Designed modular backend workflows for <b>real-time tracking & analytics</b>.  
-• Connected multiple systems into seamless pipelines, focusing on <b>efficiency and scalability</b>.`,
+      description: `⚙️ Worked on <b>end-to-end process automation</b> using <b>n8n, Zapier, and REST APIs</b>.<br/>• Designed modular backend workflows for <b>real-time tracking & analytics</b>.<br/>• Connected multiple systems into seamless pipelines, focusing on <b>efficiency and scalability</b>.`,
       side: "right",
     },
     {
@@ -40,7 +27,7 @@ const Journey = () => {
     },
     {
       year: "2024",
-      title: "Meme Making Competition Winner (Teachers’ Day)",
+      title: "Meme Making Competition Winner (Teachers' Day)",
       icon: <Mic size={22} />,
       description: `🎭 Won the <b>Meme Making Competition</b> for creativity, humor, and originality.`,
       side: "right",
@@ -83,93 +70,53 @@ const Journey = () => {
   ];
 
   return (
-    <section
-      id="journey"
-      className="relative py-20 px-6 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden"
-    >
-      {/* Animated background glow */}
-      <motion.div
-        className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 opacity-20 blur-3xl"
-        animate={{ x: ["0%", "100%", "0%"] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-      ></motion.div>
-
-      {/* Heading */}
+    <section id="journey" className="relative py-20 px-6 overflow-hidden">
       <div className="text-center mb-12 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3">
-          Journey & Achievements
+        <span className="text-xs font-medium tracking-widest uppercase text-pink-400/60">Timeline</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">
+          Journey & <span className="gradient-text">Achievements</span>
         </h2>
-        <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-          A reflection of growth, leadership, and creativity — from impactful
-          internships to lifelong milestones.
+        <p className="text-white/40 mt-4 max-w-2xl mx-auto text-sm">
+          A reflection of growth, leadership, and creativity — from impactful internships to lifelong milestones.
         </p>
       </div>
 
-      {/* Timeline */}
       <div className="relative max-w-5xl mx-auto z-10">
-        {/* Glowing vertical line */}
-        {/* Center glowing animated line */}
-<motion.div
-  className="absolute left-1/2 top-0 transform -translate-x-1/2 w-[3px] sm:w-[4px] h-full 
-             bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full 
-             shadow-[0_0_25px_rgba(168,85,247,0.7)]"
-  animate={{
-    backgroundPosition: ["0% 0%", "0% 100%", "0% 0%"],
-  }}
-  transition={{
-    duration: 8,
-    repeat: Infinity,
-    ease: "linear",
-  }}
-  style={{
-    backgroundSize: "100% 300%",
-    filter: "drop-shadow(0 0 8px rgba(147,51,234,0.8))",
-    zIndex: 0,
-  }}
-></motion.div>
-
+        <div
+          className="absolute left-1/2 top-0 transform -translate-x-1/2 w-px h-full rounded-full"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(244,114,182,0.5), rgba(192,132,252,0.5), transparent)" }}
+        />
 
         {timeline.map((item, index) => (
           <motion.div
             key={index}
-            className={`mb-16 flex ${
-              item.side === "left" ? "justify-start" : "justify-end"
-            } w-full`}
-            initial={{ opacity: 0, y: 80 }}
+            className={`mb-12 flex ${item.side === "left" ? "justify-start" : "justify-end"} w-full`}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: index * 0.1 }}
+            transition={{ duration: 0.6, delay: index * 0.08 }}
             viewport={{ once: true }}
           >
-            <div
-              className={`relative w-full sm:w-1/2 ${
-                item.side === "left" ? "pr-10 text-right" : "pl-10 text-left"
-              }`}
-            >
-              {/* Icon bubble */}
+            <div className={`relative w-full sm:w-1/2 ${item.side === "left" ? "pr-10 text-right" : "pl-10 text-left"}`}>
               <motion.div
-                className={`absolute top-6 ${
-                  item.side === "left" ? "right-[-18px]" : "left-[-18px]"
-                } bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border-2 border-purple-400`}
-                whileHover={{ scale: 1.15, rotate: 8 }}
+                className={`absolute top-5 ${item.side === "left" ? "right-[-18px]" : "left-[-18px]"} glass gradient-border p-2.5 rounded-full z-10`}
+                style={{ background: "rgba(13,10,26,0.9)" }}
+                whileHover={{ scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                {item.icon}
+                <span style={{ color: "#c084fc" }}>{item.icon}</span>
               </motion.div>
 
-              {/* Card */}
               <motion.div
-                whileHover={{ y: -6, boxShadow: "0 12px 25px rgba(0,0,0,0.15)" }}
+                whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(244,114,182,0.1)" }}
                 transition={{ duration: 0.3 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-md p-6"
+                className="glass gradient-border rounded-2xl p-6"
               >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  {item.title}
-                </h3>
+                <h3 className="text-base font-semibold text-white leading-snug">{item.title}</h3>
                 <p
-                  className="mt-2 text-gray-700 dark:text-gray-300 text-[1rem] leading-relaxed"
+                  className="mt-2 text-white/50 text-sm leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: item.description }}
                 />
-                <span className="block mt-3 text-sm font-medium text-purple-600 dark:text-purple-300">
+                <span className="block mt-3 text-xs font-medium text-pink-400/70 uppercase tracking-widest">
                   {item.year}
                 </span>
               </motion.div>
