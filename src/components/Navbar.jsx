@@ -7,11 +7,31 @@ const links = ["About", "Skills", "Projects", "Journey", "Contact"];
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("hero");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = ["hero", ...links.map(link => link.toLowerCase())];
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -20,9 +40,9 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass border-b" : ""
+        scrolled ? "bg-white/78 shadow-[0_12px_40px_rgba(236,72,153,0.08)] backdrop-blur-xl" : "bg-white/35 backdrop-blur-sm"
       }`}
-      style={{ borderColor: scrolled ? "rgba(255,255,255,0.06)" : "transparent" }}
+      style={{ borderBottom: scrolled ? "1px solid rgba(244,114,182,0.13)" : "1px solid transparent" }}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <motion.a href="#hero" whileHover={{ scale: 1.03 }}
@@ -33,7 +53,11 @@ export default function Navbar() {
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map(link => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="nav-link font-poppins">
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className={`nav-link font-poppins ${active === link.toLowerCase() ? "active" : ""}`}
+            >
               {link}
             </a>
           ))}
@@ -44,7 +68,8 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-white/60 hover:text-white transition-colors"
+        <button
+          className="md:hidden rounded-full border border-pink-100 bg-white/70 p-2 text-[#1E1B2E] transition-colors hover:text-pink-500"
           onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -56,13 +81,12 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t"
-            style={{ borderColor: "rgba(255,255,255,0.06)" }}
+            className="md:hidden border-t border-pink-100 bg-white/90 backdrop-blur-xl"
           >
             <div className="px-6 py-5 flex flex-col gap-4">
               {links.map(link => (
                 <a key={link} href={`#${link.toLowerCase()}`}
-                  className="text-white/60 hover:text-white transition-colors text-sm font-poppins"
+                  className={`text-sm font-poppins transition-colors ${active === link.toLowerCase() ? "text-pink-500" : "text-[#4B5563] hover:text-[#1E1B2E]"}`}
                   onClick={() => setMenuOpen(false)}>
                   {link}
                 </a>

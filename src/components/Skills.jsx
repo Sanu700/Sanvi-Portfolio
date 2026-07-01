@@ -20,43 +20,43 @@ const categories = [
   {
     title: "Frontend",
     emoji: "🎨",
-    color: "rgba(244,114,182,0.12)",
-    border: "rgba(244,114,182,0.2)",
+    color: "#FFF7FB",
+    border: "rgba(226,232,240,0.95)",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS"],
   },
   {
     title: "Backend",
     emoji: "⚡",
-    color: "rgba(192,132,252,0.12)",
-    border: "rgba(192,132,252,0.2)",
+    color: "#F8F7FF",
+    border: "rgba(226,232,240,0.95)",
     skills: ["Node.js", "FastAPI", "PostgreSQL", "Supabase", "REST APIs"],
   },
   {
     title: "AI / ML",
     emoji: "🤖",
-    color: "rgba(96,165,250,0.12)",
-    border: "rgba(96,165,250,0.2)",
+    color: "#FFF8F1",
+    border: "rgba(251,146,60,0.22)",
     skills: ["Python", "scikit-learn", "pandas", "NumPy", "Gemini LLM"],
   },
   {
     title: "Languages",
     emoji: "💻",
-    color: "rgba(52,211,153,0.10)",
-    border: "rgba(52,211,153,0.18)",
+    color: "#EFF8FF",
+    border: "rgba(96,165,250,0.22)",
     skills: ["Python", "JavaScript", "TypeScript", "C++", "SQL"],
   },
   {
     title: "Tools",
     emoji: "🛠",
-    color: "rgba(251,191,36,0.08)",
-    border: "rgba(251,191,36,0.15)",
+    color: "#F8FAFC",
+    border: "rgba(148,163,184,0.24)",
     skills: ["Git", "GitHub", "Vercel", "Postman", "Figma"],
   },
   {
     title: "Soft Skills",
     emoji: "🌟",
-    color: "rgba(244,114,182,0.08)",
-    border: "rgba(244,114,182,0.15)",
+    color: "#FFFBEA",
+    border: "rgba(250,204,21,0.24)",
     skills: ["Team Leadership", "Project Management", "Public Speaking", "Problem Solving"],
   },
 ];
@@ -64,59 +64,59 @@ const categories = [
 const Skills = () => (
   <motion.section
     id="skills"
-    className="min-h-screen flex flex-col items-center py-24 px-6"
+    className="min-h-screen flex flex-col items-center py-20 px-6"
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.8 }}
   >
     {/* Heading */}
-    <motion.div className="text-center mb-14"
+    <motion.div className="text-center mb-10"
       initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-      <span className="text-xs font-medium tracking-widest uppercase text-pink-400/60">Skills</span>
-      <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">
-        My <span className="gradient-text">Tech Stack</span>
+      <span className="eyebrow">Skills</span>
+      <h2 className="section-title text-3xl md:text-4xl mt-3">
+        Technologies I Enjoy <span className="gradient-text">Building With</span>
       </h2>
     </motion.div>
 
     {/* Icon carousel */}
-    <div className="w-full overflow-hidden mb-14 relative">
+    <div className="w-full overflow-hidden mb-10 relative">
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, #0d0a1a, transparent)" }} />
+        style={{ background: "linear-gradient(to right, #fdfbff, transparent)" }} />
       <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, #0d0a1a, transparent)" }} />
+        style={{ background: "linear-gradient(to left, #fdfbff, transparent)" }} />
       <div className="animate-scroll">
         {[...logos, ...logos].map((skill, i) => (
           <motion.div key={i} whileHover={{ y: -6, scale: 1.12 }}
-            className="flex flex-col items-center justify-center min-w-[100px] select-none mx-2">
-            <div className="glass gradient-border rounded-2xl p-3 w-16 h-16 flex items-center justify-center mb-2"
+            className="flex flex-col items-center justify-center min-w-[88px] select-none mx-1.5">
+            <div className="glass gradient-border rounded-2xl p-2.5 w-14 h-14 flex items-center justify-center mb-2 bg-white"
               style={{ transition: "box-shadow 0.3s" }}>
-              <img src={skill.logo} alt={skill.name} className="w-9 h-9 object-contain" />
+              <img src={skill.logo} alt={skill.name} className="w-8 h-8 object-contain" />
             </div>
-            <p className="text-xs text-white/40 font-medium">{skill.name}</p>
+            <p className="text-xs text-[#4B5563] font-medium">{skill.name}</p>
           </motion.div>
         ))}
       </div>
     </div>
 
     {/* Gradient divider */}
-    <div className="w-2/3 h-px mb-14 rounded-full"
-      style={{ background: "linear-gradient(to right, transparent, rgba(244,114,182,0.4), rgba(192,132,252,0.4), transparent)" }} />
+    <div className="w-2/3 h-px mb-10 rounded-full"
+      style={{ background: "linear-gradient(to right, transparent, rgba(226,232,240,0.9), rgba(244,114,182,0.18), transparent)" }} />
 
     {/* Skill category cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl w-full">
       {categories.map((cat, i) => (
         <motion.div key={i}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: i * 0.08 }}
-          className="glass glass-hover rounded-2xl p-6 gradient-border"
+          className="glass glass-hover rounded-[1.4rem] p-5 gradient-border"
           style={{ background: cat.color, borderColor: cat.border }}
         >
-          <h3 className="text-base font-semibold text-white mb-4 flex items-center gap-2">
-            <span>{cat.emoji}</span> {cat.title}
+          <h3 className="text-sm font-semibold text-[#1E1B2E] mb-4 flex items-center gap-2">
+            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/75">{cat.emoji}</span> {cat.title}
           </h3>
           <div className="flex flex-wrap gap-2">
             {cat.skills.map((skill, j) => (
@@ -125,7 +125,7 @@ const Skills = () => (
                 style={{
                   background: "rgba(255,255,255,0.06)",
                   border: `1px solid ${cat.border}`,
-                  color: "rgba(226,232,240,0.75)",
+                  color: "#4B5563",
                 }}>
                 {skill}
               </motion.span>

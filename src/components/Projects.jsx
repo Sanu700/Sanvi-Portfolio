@@ -1,256 +1,344 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, ExternalLink, Github } from "lucide-react";
+
+const filters = ["All", "Featured", "Full Stack", "Backend", "AI/ML", "Research"];
 
 const projects = [
   {
+    title: "VendorBridge",
+    subtitle: "Vendor discovery and collaboration platform",
+    impact: "Helping businesses discover, compare, and connect with reliable vendors faster.",
+    description: "A full-stack product focused on practical vendor workflows, trust signals, and clean collaboration loops.",
+    tags: ["React", "Node.js", "PostgreSQL", "Product Design"],
+    categories: ["Featured", "Full Stack", "Backend"],
+    liveLink: "https://vendorbridge.vercel.app",
+    githubLink: "https://github.com/Sanu700/VendorBridge",
+    image: "/vendorbridge.png",
+    metric: "🚧 Building",
+    featured: true,
+    accent: "#DB2777",
+    details: {
+      problem: "Vendor discovery is often fragmented across spreadsheets, messages, and unverified listings.",
+      architecture: "React frontend with structured vendor profiles, API-backed workflows, and relational data modeling for search and matching.",
+      challenges: "Designing a simple UX for a marketplace-style product without overloading users with filters and states.",
+      learnings: "Product clarity matters as much as implementation depth when workflows involve multiple user types.",
+      techStack: "React, Node.js, PostgreSQL, REST APIs, Tailwind CSS",
+      impact: "Positioned as a practical product with production-style flows rather than a static demo.",
+      future: "Add richer verification signals, saved vendor shortlists, analytics, and role-based dashboards.",
+    },
+  },
+  {
     title: "RepoLens",
     subtitle: "GitHub Analytics Platform",
-    description: "Full-stack developer tool that analyzes any GitHub repo in real time — commit trends, contributor leaderboards, language breakdown, health scores.",
+    impact: "Turns any GitHub repository into readable engineering health insights.",
+    description: "Full-stack developer tool that analyzes commit trends, contributor leaderboards, language breakdown, and health scores.",
     tags: ["React", "Node.js", "GitHub API", "Vercel"],
+    categories: ["Featured", "Full Stack", "Backend"],
     liveLink: "https://repo-lens-ivory.vercel.app",
     githubLink: "https://github.com/Sanu700/RepoLens",
+    image: "/repolens.png",
     metric: "⭐ 6 Stars",
-    accent: "#f472b6",
     featured: true,
+    accent: "#BE185D",
+    details: {
+      problem: "Repository activity is hard to evaluate quickly when contributors, languages, and commits are spread across GitHub views.",
+      architecture: "React UI consumes a Node API layer that normalizes GitHub API responses into analytics-friendly summaries.",
+      challenges: "Handling API limits, partial data, and keeping the interface readable for both technical and non-technical viewers.",
+      learnings: "Developer tools feel better when metrics are contextual, not just displayed as raw numbers.",
+      techStack: "React, Node.js, GitHub API, Vercel",
+      impact: "A polished tool for quickly understanding project momentum and repository health.",
+      future: "Add trend comparisons, exportable reports, and deeper pull-request analytics.",
+    },
   },
   {
     title: "Slash Experiences",
     subtitle: "Live Product · 1,000+ Users",
-    description: "Full-stack experience gifting platform serving 1,000+ users across India. Led a 6-member team. React + Supabase + Razorpay. 99.9% uptime.",
+    impact: "Production gifting platform serving 1,000+ users across India.",
+    description: "Full-stack experience gifting platform with Supabase, Razorpay, social features, and responsive booking flows.",
     tags: ["React", "TypeScript", "Supabase", "Razorpay"],
+    categories: ["Featured", "Full Stack", "Backend"],
     liveLink: "https://slashexperiences.in/",
     githubLink: "https://github.com/Sanu700/Slash",
     image: "/slash.jpg",
     metric: "🚀 1,000+ Users",
-    accent: "#c084fc",
     featured: true,
+    accent: "#A855F7",
+    details: {
+      problem: "Customers needed a smoother way to discover, book, and gift curated experiences online.",
+      architecture: "React and TypeScript frontend connected to Supabase data, authentication, and Razorpay payment flows.",
+      challenges: "Balancing payment reliability, responsive UX, and production constraints for real users.",
+      learnings: "Shipping to real users sharpened decisions around error states, performance, and maintainability.",
+      techStack: "React, TypeScript, Supabase, Razorpay",
+      impact: "Served 1,000+ users with production uptime and measurable UX improvements.",
+      future: "Improve recommendation flows, admin analytics, and personalized user journeys.",
+    },
   },
   {
-    title: "AI Credit Risk Dashboard",
+    title: "AI Credit Risk",
     subtitle: "ML + Business Intelligence",
-    description: "End-to-end ML pipeline — Random Forest AUC 0.80, 1,000-scenario Monte Carlo simulation, Gemini LLM executive summaries. Interactive React dashboard.",
+    impact: "Explains credit risk through models, scenarios, and executive summaries.",
+    description: "End-to-end ML pipeline with Random Forest AUC 0.80, Monte Carlo simulation, Gemini summaries, and a React dashboard.",
     tags: ["Python", "scikit-learn", "FastAPI", "React"],
+    categories: ["AI/ML", "Full Stack"],
     liveLink: "https://ai-credit-risk-intelligence.vercel.app",
     githubLink: "https://github.com/Sanu700/AI-Credit-Risk-Intelligence",
+    image: "/credit-risk.png",
     metric: "🤖 AUC 0.80",
-    accent: "#60a5fa",
     featured: false,
+    accent: "#FB7185",
+    details: {
+      problem: "Credit risk outputs can be accurate but difficult for business teams to interpret and act on.",
+      architecture: "Python ML pipeline with FastAPI services and a React dashboard for scenario exploration.",
+      challenges: "Connecting model metrics to clear business narratives without hiding uncertainty.",
+      learnings: "ML products need explainability, evaluation discipline, and thoughtful interface design.",
+      techStack: "Python, scikit-learn, FastAPI, React, Gemini LLM",
+      impact: "Combined predictive modeling, simulations, and LLM summaries into one decision-support flow.",
+      future: "Add model monitoring, richer feature explainability, and portfolio-level comparisons.",
+    },
   },
   {
-    title: "Monte Carlo Stress Testing",
+    title: "Monte Carlo",
     subtitle: "Financial Risk Engine",
-    description: "1,000-scenario Monte Carlo simulation using PD-LGD-EAD framework. Computes 95% & 99% VaR to quantify tail-risk under recession scenarios.",
+    impact: "Quantifies tail-risk with 1,000-scenario stress testing.",
+    description: "Monte Carlo simulation using PD-LGD-EAD framework with 95% and 99% VaR under recession scenarios.",
     tags: ["Python", "NumPy", "SciPy", "pandas"],
+    categories: ["AI/ML", "Research"],
     githubLink: "https://github.com/Sanu700/Stress-Testing-Loss-Forecasting-Engine",
+    image: "/monte-carlo.png",
     metric: "📊 99% VaR",
-    accent: "#e879f9",
     featured: false,
+    accent: "#60A5FA",
+    details: {
+      problem: "Financial downside risk requires scenario thinking beyond average-case forecasts.",
+      architecture: "Python simulation engine using statistical distributions and portfolio loss calculations.",
+      challenges: "Designing assumptions that are explicit, testable, and useful for stress scenarios.",
+      learnings: "Risk systems are strongest when the model, assumptions, and interpretation are all transparent.",
+      techStack: "Python, NumPy, SciPy, pandas",
+      impact: "Produces tail-risk estimates that make stress outcomes easier to reason about.",
+      future: "Add an interactive dashboard, sensitivity analysis, and configurable macroeconomic scenarios.",
+    },
   },
   {
     title: "Cinepedia",
     subtitle: "Movie Review Platform",
-    description: "Full-stack movie review platform with Google OAuth, real-time rating aggregation, and Supabase PostgreSQL schema supporting 10K+ records.",
+    impact: "A full-stack review experience with auth, ratings, and scalable records.",
+    description: "Movie review platform with Google OAuth, real-time rating aggregation, and Supabase PostgreSQL schema for 10K+ records.",
     tags: ["React", "TypeScript", "Supabase", "OAuth"],
+    categories: ["Full Stack", "Backend"],
     liveLink: "https://cineepedia.netlify.app",
     githubLink: "https://github.com/Sanu700/Cinepedia",
     image: "/Movie.png",
     metric: "🎬 10K+ Records",
-    accent: "#a78bfa",
     featured: false,
-  },
-  {
-   
-    title: "Task Dashboard",
-    subtitle: "Productivity Web App",
-    description: "Full-stack productivity app with gamification elements — custom task boards, progress tracking, streak system, and timers to enhance user focus.",
-    tags: ["React", "JavaScript", "CSS3", "Netlify"],
-    liveLink: "https://task-dash.netlify.app/",
-    githubLink: "https://github.com/Sanu700/task-dashboard",
-    image: "/task.webp",
-    metric: "✅ Gamified",
-    accent: "#34d399",
-    featured: false,
-  
+    accent: "#A78BFA",
+    details: {
+      problem: "Movie discovery and reviews need fast interaction, clear ratings, and trusted user identity.",
+      architecture: "React frontend with Supabase authentication, PostgreSQL data, and rating aggregation logic.",
+      challenges: "Keeping auth, database reads, and user-generated content interactions responsive.",
+      learnings: "Schema design directly affects how smooth product features feel in the UI.",
+      techStack: "React, TypeScript, Supabase, OAuth",
+      impact: "Supports a full review workflow with real-time rating aggregation and a large record set.",
+      future: "Add watchlists, recommendation filters, and richer moderation tools.",
+    },
   },
 ];
 
-function Modal({ project, onClose }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(13,10,26,0.88)", backdropFilter: "blur(16px)" }}
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.88, y: 24 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.88, y: 24 }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        className="glass gradient-border rounded-3xl p-8 max-w-lg w-full"
-        style={{ background: `linear-gradient(135deg, rgba(13,10,26,0.95), ${project.accent}12)` }}
-        onClick={e => e.stopPropagation()}
+function ProjectImage({ project }) {
+  const [failed, setFailed] = useState(false);
+
+  if (failed || !project.image) {
+    return (
+      <div
+        className="flex h-full min-h-[92px] items-center justify-center rounded-2xl border border-pink-100/80"
+        style={{ background: `linear-gradient(135deg, ${project.accent}14, #ffffff 58%, #fff5fa)` }}
       >
-        <div className="flex items-start justify-between mb-5">
-          <div>
-            <span className="text-xs px-3 py-1 rounded-full mb-3 inline-block glass"
-              style={{ color: project.accent, border: `1px solid ${project.accent}40` }}>
-              {project.metric}
-            </span>
-            <h3 className="text-2xl font-bold text-white mt-2">{project.title}</h3>
-            <p className="text-sm mt-1" style={{ color: project.accent + "bb" }}>{project.subtitle}</p>
-          </div>
-          <button onClick={onClose} className="text-white/30 hover:text-white transition-colors ml-4 mt-1">
-            <X size={20} />
-          </button>
+        <div className="text-center">
+          <div className="mx-auto mb-2 h-8 w-8 rounded-2xl bg-white/80 shadow-sm" />
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#4B5563]">{project.title}</p>
         </div>
-        {project.image && (
-          <div className="rounded-xl overflow-hidden mb-5 h-40">
-            <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-          </div>
-        )}
-        <p className="text-white/55 text-sm leading-relaxed mb-5">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map(tag => (
-            <span key={tag} className="text-xs px-3 py-1 rounded-full glass"
-              style={{ color: "rgba(226,232,240,0.6)", border: `1px solid ${project.accent}30` }}>
-              {tag}
-            </span>
-          ))}
-        </div>
-        <div className="flex gap-3">
-          {project.liveLink && (
-            <a href={project.liveLink} target="_blank" rel="noreferrer" className="btn-primary text-sm py-2.5 px-5">
-              <ExternalLink size={13} /> Live Demo
-            </a>
-          )}
-          {project.githubLink && (
-            <a href={project.githubLink} target="_blank" rel="noreferrer" className="btn-outline text-sm py-2.5 px-5">
-              <Github size={13} /> Code
-            </a>
-          )}
-        </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={project.image}
+      alt={`${project.title} screenshot`}
+      onError={() => setFailed(true)}
+      className="h-full min-h-[92px] w-full rounded-2xl object-cover"
+    />
   );
 }
 
-const Projects = () => {
-  const [selected, setSelected] = useState(null);
-  const featured = projects.filter(p => p.featured);
-  const rest = projects.filter(p => !p.featured);
+export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [expanded, setExpanded] = useState("");
+
+  const visibleProjects = projects.filter(project => (
+    activeFilter === "All" || project.categories.includes(activeFilter)
+  ));
 
   return (
-    <section id="projects" className="min-h-screen py-24 px-6">
+    <section
+      id="projects"
+      className="projects-section relative min-h-screen overflow-hidden px-6 py-18 sm:py-20"
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="text-center mb-16"
+        className="relative z-10 mb-8 text-center"
       >
-        <span className="text-xs font-medium tracking-widest uppercase text-pink-400/60">Work</span>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">
+        <span className="eyebrow">Work</span>
+        <h2 className="section-title mt-3 text-3xl md:text-4xl">
           Things I've <span className="gradient-text">Built</span>
         </h2>
-        <p className="mt-4 text-white/40 max-w-xl mx-auto text-sm">
+        <p className="section-copy mx-auto mt-3 max-w-2xl text-xs sm:text-sm">
           From AI pipelines to live products — here's what I've shipped.
         </p>
       </motion.div>
 
-      {/* Featured 2-column */}
-      <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-6">
-        {featured.map((project, i) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.12 }}
-            whileHover={{ y: -6 }}
-            onClick={() => setSelected(project)}
-            className="glass gradient-border rounded-3xl p-7 cursor-pointer group relative overflow-hidden"
-            style={{
-              background: `linear-gradient(135deg, ${project.accent}10 0%, rgba(13,10,26,0.6) 100%)`,
-              border: `1px solid ${project.accent}25`,
-              minHeight: "240px",
-            }}
+      <div className="relative z-10 mx-auto mb-7 flex max-w-4xl flex-wrap justify-center gap-2">
+        {filters.map(filter => (
+          <button
+            key={filter}
+            type="button"
+            onClick={() => setActiveFilter(filter)}
+            className={`rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-all ${
+              activeFilter === filter
+                ? "bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white shadow-[0_10px_28px_rgba(236,72,153,0.22)]"
+                : "border border-pink-100/80 bg-white/70 text-[#4B5563] hover:-translate-y-0.5 hover:border-pink-200 hover:text-pink-600"
+            }`}
           >
-            {/* Glow on hover */}
-            <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ background: `radial-gradient(circle at 50% 0%, ${project.accent}15, transparent 70%)` }} />
-
-            {project.image && (
-              <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-3xl overflow-hidden opacity-20 group-hover:opacity-30 transition-opacity">
-                <img src={project.image} alt="" className="w-full h-full object-cover" />
-              </div>
-            )}
-
-            <div className="relative z-10">
-              <span className="text-xs px-3 py-1 rounded-full glass inline-block mb-4"
-                style={{ color: project.accent, border: `1px solid ${project.accent}40` }}>
-                {project.metric}
-              </span>
-              <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
-              <p className="text-xs mb-3" style={{ color: project.accent + "99" }}>{project.subtitle}</p>
-              <p className="text-white/50 text-sm leading-relaxed mb-5">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                  <span key={tag} className="text-[11px] px-2.5 py-1 rounded-lg text-white/40"
-                    style={{ background: "rgba(255,255,255,0.05)" }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+            {filter}
+          </button>
         ))}
       </div>
 
-      {/* Smaller cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
-        {rest.map((project, i) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55, delay: i * 0.08 }}
-            whileHover={{ y: -5 }}
-            onClick={() => setSelected(project)}
-            className="glass gradient-border rounded-2xl p-5 cursor-pointer group relative overflow-hidden"
-            style={{ border: `1px solid ${project.accent}20` }}
-          >
-            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
-              style={{ background: `radial-gradient(circle at 50% 0%, ${project.accent}12, transparent 70%)` }} />
-            <div className="relative z-10">
-              <span className="text-xs px-2 py-0.5 rounded-full inline-block mb-3"
-                style={{ color: project.accent, background: project.accent + "15", fontSize: "10px" }}>
-                {project.metric}
-              </span>
-              <h3 className="text-base font-bold text-white mb-1">{project.title}</h3>
-              <p className="text-white/40 text-xs leading-relaxed mb-3">
-                {project.description.slice(0, 90)}...
-              </p>
-              <div className="flex flex-wrap gap-1">
-                {project.tags.slice(0, 2).map(tag => (
-                  <span key={tag} className="text-[10px] px-2 py-0.5 rounded text-white/30"
-                    style={{ background: "rgba(255,255,255,0.04)" }}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+      <motion.div layout className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <AnimatePresence mode="popLayout">
+          {visibleProjects.map((project, index) => {
+            const isExpanded = expanded === project.title;
+            const isLarge = index < 2;
 
-      <AnimatePresence>
-        {selected && <Modal project={selected} onClose={() => setSelected(null)} />}
-      </AnimatePresence>
+            return (
+              <motion.article
+                layout
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.45, delay: index * 0.03 }}
+                whileHover={{ y: -5 }}
+                className={`project-card group relative overflow-hidden rounded-[1.45rem] ${
+                  isLarge ? "min-h-[230px] p-6 lg:col-span-2" : "min-h-[172px] p-5 lg:col-span-1"
+                }`}
+              >
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-60 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ background: `linear-gradient(135deg, ${project.accent}10 0%, transparent 55%, rgba(168,85,247,0.06) 100%)` }}
+                />
+                {isLarge && (
+                  <div className="absolute right-0 top-0 h-28 w-28 overflow-hidden rounded-bl-[1.45rem] opacity-30 transition-opacity duration-500 group-hover:opacity-50">
+                    <ProjectImage project={project} />
+                  </div>
+                )}
+
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="mb-4 flex flex-wrap items-center gap-2">
+                    {project.featured && (
+                      <span
+                        className="rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"
+                        style={{ color: project.accent, borderColor: `${project.accent}30`, background: `${project.accent}10` }}
+                      >
+                        Featured
+                      </span>
+                    )}
+                    <span
+                      className="rounded-full border px-2.5 py-1 text-[10px] font-medium text-[#4B5563]"
+                      style={{ borderColor: `${project.accent}25`, background: "rgba(255,255,255,0.7)" }}
+                    >
+                      {project.metric}
+                    </span>
+                  </div>
+
+                  <div className={isLarge ? "max-w-[76%]" : ""}>
+                    <h3 className={`${isLarge ? "text-lg" : "text-base"} font-bold tracking-tight text-[#1E1B2E]`}>{project.title}</h3>
+                    <p className="mt-1 text-[10px] font-medium" style={{ color: project.accent }}>{project.subtitle}</p>
+                    <p className={`${isLarge ? "line-clamp-3" : "line-clamp-3"} mt-4 text-xs leading-relaxed text-[#4B5563]`}>
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {project.tags.slice(0, isLarge ? 4 : 2).map(tag => (
+                      <span key={tag} className="rounded-lg bg-white/80 px-2.5 py-1 text-[10px] text-[#4B5563]" style={{ border: `1px solid ${project.accent}18` }}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        key="details"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-5 grid gap-3 border-t border-pink-100 pt-5 sm:grid-cols-2">
+                          {[
+                            ["Problem", project.details.problem],
+                            ["Architecture", project.details.architecture],
+                            ["Challenges", project.details.challenges],
+                            ["Key Learnings", project.details.learnings],
+                            ["Tech Stack", project.details.techStack],
+                            ["Impact", project.details.impact],
+                            ["Future Improvements", project.details.future],
+                          ].map(([label, text]) => (
+                            <div key={label} className={label === "Future Improvements" ? "sm:col-span-2" : ""}>
+                              <h4 className="text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: project.accent }}>{label}</h4>
+                              <p className="section-copy mt-1.5 text-xs leading-relaxed">{text}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-5">
+                    <button
+                      type="button"
+                      onClick={() => setExpanded(isExpanded ? "" : project.title)}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-pink-100 bg-white/80 px-3 py-1.5 text-[10px] font-semibold text-[#4B5563] transition hover:border-pink-200 hover:text-pink-600"
+                      aria-expanded={isExpanded}
+                    >
+                      {isExpanded ? "Close" : "Expand"}
+                      <motion.span animate={{ rotate: isExpanded ? 180 : 0 }}>
+                        <ChevronDown size={12} />
+                      </motion.span>
+                    </button>
+                    {project.githubLink && (
+                      <a href={project.githubLink} target="_blank" rel="noreferrer" className="btn-outline px-3 py-1.5 text-[10px]">
+                        <Github size={12} /> GitHub
+                      </a>
+                    )}
+                    {project.liveLink && (
+                      <a href={project.liveLink} target="_blank" rel="noreferrer" className="btn-primary px-3 py-1.5 text-[10px]">
+                        <ExternalLink size={12} /> Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
-};
-
-export default Projects;
+}

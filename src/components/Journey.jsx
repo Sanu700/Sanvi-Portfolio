@@ -71,54 +71,50 @@ const Journey = () => {
 
   return (
     <section id="journey" className="relative py-20 px-6 overflow-hidden">
-      <div className="text-center mb-12 relative z-10">
-        <span className="text-xs font-medium tracking-widest uppercase text-pink-400/60">Timeline</span>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">
+      <div className="text-center mb-10 relative z-10">
+        <span className="eyebrow">Timeline</span>
+        <h2 className="section-title text-3xl md:text-4xl mt-3">
           Journey & <span className="gradient-text">Achievements</span>
         </h2>
-        <p className="text-white/40 mt-4 max-w-2xl mx-auto text-sm">
+        <p className="section-copy mt-4 max-w-2xl mx-auto text-sm">
           A reflection of growth, leadership, and creativity — from impactful internships to lifelong milestones.
         </p>
       </div>
 
       <div className="relative max-w-5xl mx-auto z-10">
         <div
-          className="absolute left-1/2 top-0 transform -translate-x-1/2 w-px h-full rounded-full"
-          style={{ background: "linear-gradient(to bottom, transparent, rgba(244,114,182,0.5), rgba(192,132,252,0.5), transparent)" }}
+          className="absolute left-4 top-0 h-full w-px rounded-full md:left-1/2 md:-translate-x-1/2"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(236,72,153,0.38), rgba(232,121,249,0.28), transparent)" }}
         />
 
         {timeline.map((item, index) => (
           <motion.div
             key={index}
-            className={`mb-12 flex ${item.side === "left" ? "justify-start" : "justify-end"} w-full`}
+            className={`mb-8 flex w-full ${item.side === "left" ? "md:justify-start" : "md:justify-end"}`}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.08 }}
             viewport={{ once: true }}
           >
-            <div className={`relative w-full sm:w-1/2 ${item.side === "left" ? "pr-10 text-right" : "pl-10 text-left"}`}>
+            <div className={`relative ml-10 w-full md:ml-0 md:w-1/2 ${item.side === "left" ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
+              <span
+                className={`absolute top-6 h-3.5 w-3.5 rounded-full border-4 border-white bg-[#EC4899] shadow-[0_0_0_7px_rgba(236,72,153,0.10)] ${item.side === "left" ? "left-[-31px] md:left-auto md:right-[-7px]" : "left-[-31px] md:left-[-7px]"}`}
+              />
               <motion.div
-                className={`absolute top-5 ${item.side === "left" ? "right-[-18px]" : "left-[-18px]"} glass gradient-border p-2.5 rounded-full z-10`}
-                style={{ background: "rgba(13,10,26,0.9)" }}
-                whileHover={{ scale: 1.15 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <span style={{ color: "#c084fc" }}>{item.icon}</span>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -4, boxShadow: "0 16px 40px rgba(244,114,182,0.1)" }}
+                whileHover={{ y: -4, boxShadow: "0 18px 42px rgba(15,23,42,0.08)" }}
                 transition={{ duration: 0.3 }}
-                className="glass gradient-border rounded-2xl p-6"
+                className="glass gradient-border rounded-[1.4rem] p-5"
               >
-                <h3 className="text-base font-semibold text-white leading-snug">{item.title}</h3>
+                <div className={`mb-3 flex items-center gap-2 ${item.side === "left" ? "md:justify-end" : ""}`}>
+                  <span className="rounded-full bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#DB2777]">
+                    {item.year}
+                  </span>
+                </div>
+                <h3 className="text-base font-semibold text-[#1E1B2E] leading-snug">{item.title}</h3>
                 <p
-                  className="mt-2 text-white/50 text-sm leading-relaxed"
+                  className="section-copy mt-2 text-sm leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: item.description }}
                 />
-                <span className="block mt-3 text-xs font-medium text-pink-400/70 uppercase tracking-widest">
-                  {item.year}
-                </span>
               </motion.div>
             </div>
           </motion.div>
