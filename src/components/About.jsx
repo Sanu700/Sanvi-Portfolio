@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const stats = [
   { value: "1,000+", label: "Users Served" },
   { value: "2",      label: "Internships" },
-  { value: "6+",     label: "Projects Shipped" },
+  { value: "7",      label: "Projects Shipped" },
   { value: "AUC 0.80", label: "ML Model Score" },
 ];
 
@@ -34,9 +34,9 @@ export default function About() {
                 transition={{ duration: 0.6, delay: i * 0.12 }}
                 className="glass glass-hover gradient-border rounded-[1.4rem] p-5">
                 <div className="flex items-start gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-50 text-xl">{block.emoji}</span>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-slate-50 dark:bg-white/10 text-xl">{block.emoji}</span>
                   <div>
-                    <h3 className="font-semibold text-[#1E1B2E] mb-1.5 text-sm">{block.title}</h3>
+                    <h3 className="font-semibold text-[#1E1B2E] dark:text-white mb-1.5 text-sm">{block.title}</h3>
                     <p className="section-copy text-sm leading-relaxed">{block.text}</p>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
                 className="glass glass-hover gradient-border rounded-[1.4rem] p-5 text-center">
                 <div className="text-2xl font-bold gradient-text mb-1.5">{stat.value}</div>
-                <div className="text-[#4B5563] text-xs uppercase tracking-widest font-poppins">{stat.label}</div>
+                <div className="text-[#4B5563] dark:text-slate-300 text-xs uppercase tracking-widest font-poppins">{stat.label}</div>
               </motion.div>
             ))}
             <motion.div
@@ -64,11 +64,11 @@ export default function About() {
               className="col-span-2 glass gradient-border rounded-[1.4rem] p-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-[#1E1B2E] font-semibold mb-1">BITS Pilani, Hyderabad</div>
+                  <div className="text-[#1E1B2E] dark:text-white font-semibold mb-1">BITS Pilani, Hyderabad</div>
                   <div className="section-copy text-sm">B.E. Mechanical Engg · Minor CNI</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-[#4B5563] text-xs mb-1">CGPA</div>
+                  <div className="text-[#4B5563] dark:text-slate-300 text-xs mb-1">CGPA</div>
                   <div className="text-2xl font-bold gradient-text">7.61</div>
                 </div>
               </div>
@@ -79,3 +79,4 @@ export default function About() {
     </section>
   );
 }
+

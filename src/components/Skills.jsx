@@ -20,43 +20,31 @@ const categories = [
   {
     title: "Frontend",
     emoji: "🎨",
-    color: "#FFF7FB",
-    border: "rgba(226,232,240,0.95)",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS"],
   },
   {
     title: "Backend",
     emoji: "⚡",
-    color: "#F8F7FF",
-    border: "rgba(226,232,240,0.95)",
-    skills: ["Node.js", "FastAPI", "PostgreSQL", "Supabase", "REST APIs"],
+    skills: ["Node.js", "FastAPI", "Python", "PostgreSQL", "Supabase", "REST APIs"],
   },
   {
     title: "AI / ML",
     emoji: "🤖",
-    color: "#FFF8F1",
-    border: "rgba(251,146,60,0.22)",
-    skills: ["Python", "scikit-learn", "pandas", "NumPy", "Gemini LLM"],
+    skills: ["Python", "scikit-learn", "FastAPI", "pandas", "NumPy", "Gemini LLM"],
   },
   {
     title: "Languages",
     emoji: "💻",
-    color: "#EFF8FF",
-    border: "rgba(96,165,250,0.22)",
     skills: ["Python", "JavaScript", "TypeScript", "C++", "SQL"],
   },
   {
     title: "Tools",
     emoji: "🛠",
-    color: "#F8FAFC",
-    border: "rgba(148,163,184,0.24)",
     skills: ["Git", "GitHub", "Vercel", "Postman", "Figma"],
   },
   {
     title: "Soft Skills",
     emoji: "🌟",
-    color: "#FFFBEA",
-    border: "rgba(250,204,21,0.24)",
     skills: ["Team Leadership", "Project Management", "Public Speaking", "Problem Solving"],
   },
 ];
@@ -81,20 +69,15 @@ const Skills = () => (
 
     {/* Icon carousel */}
     <div className="w-full overflow-hidden mb-8 relative">
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, #fdfbff, transparent)" }} />
-      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, #fdfbff, transparent)" }} />
       <div className="animate-scroll">
         {[...logos, ...logos].map((skill, i) => (
           <motion.div key={i} whileHover={{ y: -6, scale: 1.12 }}
             className="flex flex-col items-center justify-center min-w-[88px] select-none mx-1.5">
-            <div className="glass gradient-border rounded-2xl p-2.5 w-14 h-14 flex items-center justify-center mb-2 bg-white"
+            <div className="glass gradient-border rounded-2xl p-2.5 w-14 h-14 flex items-center justify-center mb-2 bg-white dark:bg-slate-900/80"
               style={{ transition: "box-shadow 0.3s" }}>
               <img src={skill.logo} alt={skill.name} className="w-8 h-8 object-contain" />
             </div>
-            <p className="text-xs text-[#4B5563] font-medium">{skill.name}</p>
+            <p className="text-xs text-[#4B5563] dark:text-slate-300 font-medium">{skill.name}</p>
           </motion.div>
         ))}
       </div>
@@ -113,20 +96,15 @@ const Skills = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: i * 0.08 }}
           className="glass glass-hover rounded-[1.4rem] p-5 gradient-border"
-          style={{ background: cat.color, borderColor: cat.border }}
         >
-          <h3 className="text-sm font-semibold text-[#1E1B2E] mb-4 flex items-center gap-2">
-            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/75">{cat.emoji}</span> {cat.title}
+          <h3 className="text-sm font-semibold text-[#1E1B2E] dark:text-white mb-4 flex items-center gap-2">
+            <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-50 dark:bg-white/10">{cat.emoji}</span> {cat.title}
           </h3>
           <div className="flex flex-wrap gap-2">
             {cat.skills.map((skill, j) => (
               <motion.span key={j} whileHover={{ scale: 1.08, y: -2 }}
-                className="skill-pill text-xs px-3 py-1.5 rounded-full font-medium"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: `1px solid ${cat.border}`,
-                  color: "#4B5563",
-                }}>
+                className="skill-pill text-xs px-3 py-1.5 rounded-full font-medium border border-pink-100 dark:border-pink-900/30 bg-white/70 dark:bg-white/5 text-[#4B5563] dark:text-slate-200"
+              >
                 {skill}
               </motion.span>
             ))}
@@ -138,3 +116,4 @@ const Skills = () => (
 );
 
 export default Skills;
+

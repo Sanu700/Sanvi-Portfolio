@@ -2,9 +2,31 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ExternalLink, Github } from "lucide-react";
 
-const filters = ["All", "Featured", "Full Stack", "Backend", "AI/ML", "Research"];
+const filters = ["All", "Featured", "Full Stack", "Backend", "AI / ML", "Productivity"];
 
 const projects = [
+  {
+    title: "ToxicBuddy",
+    subtitle: "Live Product · NLP Moderation",
+    impact: "Deployed conversational toxicity analysis platform for detecting and reducing harmful communication.",
+    description: "End-to-end NLP moderation platform that analyzes messages and conversations, identifies toxic patterns, provides user-level insights, and suggests more constructive rewrites.",
+    tags: ["React", "Python", "FastAPI", "scikit-learn"],
+    categories: ["Featured", "AI / ML", "Full Stack"],
+    liveLink: "YOUR_TOXICBUDDY_LIVE_URL",
+    githubLink: "https://github.com/Sanu700/ToxicBuddy",
+    metric: "🛡️ Real-time Toxicity Analysis",
+    featured: true,
+    accent: "#F97316",
+    details: {
+      problem: "Online conversations can quickly become hostile, while existing moderation tools often focus on flagging harmful messages without helping users communicate more constructively.",
+      architecture: "React frontend connected to a Python backend and NLP inference pipeline for message classification, conversation analysis, toxicity scoring, and rewrite suggestions.",
+      challenges: "Designing an interpretable toxicity analysis workflow while keeping inference responsive and presenting complex ML predictions through a simple user experience.",
+      learnings: "Built practical experience across NLP classification, model evaluation, API design, data aggregation, and deploying an ML-powered product.",
+      techStack: "React, Python, FastAPI, scikit-learn, NLP",
+      impact: "Transforms raw conversation data into actionable toxicity insights and constructive rewrite suggestions through a deployed web application.",
+      future: "Improve multi-label classification, conversation escalation detection, model accuracy, and real-time moderation capabilities."
+    }
+  },
   {
     title: "VendorBridge",
     subtitle: "Vendor-supplier marketplace · 48hr hackathon build",
@@ -77,11 +99,11 @@ const projects = [
     impact: "Explains credit risk through models, scenarios, and executive summaries.",
     description: "End-to-end ML pipeline with Random Forest AUC 0.80, Monte Carlo simulation, Gemini summaries, and a React dashboard.",
     tags: ["Python", "scikit-learn", "FastAPI", "React"],
-    categories: ["AI/ML", "Full Stack"],
+    categories: ["Featured", "AI / ML", "Full Stack"],
     liveLink: "https://ai-credit-risk-intelligence.vercel.app",
     githubLink: "https://github.com/Sanu700/AI-Credit-Risk-Intelligence",
     metric: "🤖 AUC 0.80",
-    featured: false,
+    featured: true,
     accent: "#FB7185",
     details: {
       problem: "Credit risk outputs can be accurate but difficult for business teams to interpret and act on.",
@@ -116,48 +138,52 @@ const projects = [
     },
   },
   {
-  title: "Task Dashboard",
-  subtitle: "Task Management Platform",
-  impact: "A focused productivity experience combining task tracking, Pomodoro sessions, and achievement-based motivation.",
-  description: "Productivity dashboard with task CRUD, 25/5 Pomodoro timer, achievement badges, progress tracking, and persistent local storage.",
-  tags: ["React", "JavaScript", "CSS", "localStorage"],
-  categories: ["Full Stack", "Productivity"],
-  liveLink: "https://task-dash.netlify.app",
-  githubLink: "https://github.com/Sanu700/task-dashboard",
-  metric: "⏱️ 25/5 Focus Cycle",
-  featured: false,
-  accent: "#FB7185",
-  details: {
-    problem: "Managing tasks consistently requires more than a checklist—it also needs focused work sessions and visible progress.",
-    architecture: "React frontend with modular task, Pomodoro, achievement, and progress-tracking components using localStorage for persistence.",
-    challenges: "Connecting task completion, timer sessions, productivity statistics, and achievement logic into one simple workflow.",
-    learnings: "Learned how component-based architecture and persistent client-side state can support a complete productivity experience.",
-    techStack: "React 18, JavaScript, CSS Modules, localStorage, Netlify",
-    impact: "Combines task management, focused work sessions, progress tracking, and gamification into a lightweight productivity platform.",
-    future: "Add user authentication, cloud synchronization, custom timer settings, and deeper productivity analytics.",
+    title: "Task Dashboard",
+    subtitle: "Task Management Platform",
+    impact: "A focused productivity experience combining task tracking, Pomodoro sessions, and achievement-based motivation.",
+    description: "Productivity dashboard with task CRUD, 25/5 Pomodoro timer, achievement badges, progress tracking, and persistent local storage.",
+    tags: ["React", "JavaScript", "CSS", "localStorage"],
+    categories: ["Full Stack", "Productivity"],
+    liveLink: "https://task-dash.netlify.app",
+    githubLink: "https://github.com/Sanu700/task-dashboard",
+    metric: "⏱️ 25/5 Focus Cycle",
+    featured: false,
+    accent: "#EC4899",
+    details: {
+      problem: "Managing tasks consistently requires more than a checklist—it also needs focused work sessions and visible progress.",
+      architecture: "React frontend with modular task, Pomodoro, achievement, and progress-tracking components using localStorage for persistence.",
+      challenges: "Connecting task completion, timer sessions, productivity statistics, and achievement logic into one simple workflow.",
+      learnings: "Learned how component-based architecture and persistent client-side state can support a complete productivity experience.",
+      techStack: "React 18, JavaScript, CSS Modules, localStorage, Netlify",
+      impact: "Combines task management, focused work sessions, progress tracking, and gamification into a lightweight productivity platform.",
+      future: "Add user authentication, cloud synchronization, custom timer settings, and deeper productivity analytics.",
+    },
   },
-},
 ];
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [expanded, setExpanded] = useState("");
 
-  const visibleProjects = projects.filter(project => (
-    activeFilter === "All" || project.categories.includes(activeFilter)
-  ));
+  const visibleProjects = projects.filter(project => {
+    if (activeFilter === "All") return true;
+    const cleanFilter = activeFilter.replace(/\s+/g, "").toLowerCase();
+    return project.categories.some(
+      cat => cat.replace(/\s+/g, "").toLowerCase() === cleanFilter
+    );
+  });
 
   return (
     <section
       id="projects"
-      className="projects-section relative overflow-hidden px-6 py-12 sm:py-14"
+      className="projects-section relative overflow-hidden px-6 py-14 sm:py-16"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        className="relative z-10 mb-6 text-center"
+        className="relative z-10 mb-8 text-center"
       >
         <span className="eyebrow">Work</span>
         <h2 className="section-title mt-3 text-3xl md:text-4xl">
@@ -168,28 +194,35 @@ export default function Projects() {
         </p>
       </motion.div>
 
-      <div className="relative z-10 mx-auto mb-6 flex max-w-4xl flex-wrap justify-center gap-2">
-        {filters.map(filter => (
-          <button
-            key={filter}
-            type="button"
-            onClick={() => setActiveFilter(filter)}
-            className={`rounded-full px-3.5 py-1.5 text-[11px] font-semibold transition-all ${
-              activeFilter === filter
-                ? "bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white shadow-[0_10px_28px_rgba(236,72,153,0.22)]"
-                : "border border-pink-100/80 bg-white/70 text-[#4B5563] hover:-translate-y-0.5 hover:border-pink-200 hover:text-pink-600"
-            }`}
-          >
-            {filter}
-          </button>
-        ))}
+      {/* Filter Buttons */}
+      <div className="relative z-10 mx-auto mb-8 flex max-w-4xl flex-wrap justify-center gap-2">
+        {filters.map(filter => {
+          const isActive = activeFilter === filter;
+          return (
+            <button
+              key={filter}
+              type="button"
+              onClick={() => setActiveFilter(filter)}
+              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all duration-300 ${
+                isActive
+                  ? "bg-gradient-to-r from-pink-500 to-fuchsia-500 text-white shadow-[0_10px_28px_rgba(236,72,153,0.22)] scale-105"
+                  : "border border-pink-100/80 dark:border-pink-900/30 bg-white/70 dark:bg-white/5 text-[#4B5563] dark:text-slate-300 hover:-translate-y-0.5 hover:border-pink-300 dark:hover:border-pink-500 hover:text-pink-600 dark:hover:text-pink-400"
+              }`}
+            >
+              {filter}
+            </button>
+          );
+        })}
       </div>
 
-      <motion.div layout className="relative z-10 mx-auto grid max-w-5xl gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {/* Uniform Grid Layout */}
+      <motion.div
+        layout
+        className="relative z-10 mx-auto grid max-w-6xl gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch"
+      >
         <AnimatePresence mode="popLayout">
           {visibleProjects.map((project, index) => {
             const isExpanded = expanded === project.title;
-            const isLarge = index < 2;
 
             return (
               <motion.article
@@ -197,52 +230,75 @@ export default function Projects() {
                 key={project.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.45, delay: index * 0.03 }}
-                whileHover={{ y: -5 }}
-                className={`project-card group relative overflow-hidden rounded-[1.45rem] ${
-                  isLarge ? "min-h-[230px] p-6 lg:col-span-2" : "min-h-[172px] p-5 lg:col-span-1"
-                }`}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.4, delay: index * 0.04 }}
+                whileHover={{ y: -6 }}
+                className="project-card group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] p-6 transition-all duration-300 border border-pink-100/70 dark:border-pink-900/30"
               >
+                {/* Accent Background Glow */}
                 <div
-                  className="pointer-events-none absolute inset-0 opacity-60 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{ background: `linear-gradient(135deg, ${project.accent}10 0%, transparent 55%, rgba(168,85,247,0.06) 100%)` }}
+                  className="pointer-events-none absolute inset-0 opacity-40 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(circle at 10% 10%, ${project.accent}15 0%, transparent 60%)`,
+                  }}
                 />
 
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="mb-4 flex flex-wrap items-center gap-2">
-                    {project.featured && (
+                <div className="relative z-10 flex h-full flex-col justify-between">
+                  <div>
+                    {/* Header Badges */}
+                    <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        {project.featured && (
+                          <span
+                            className="rounded-full border px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
+                            style={{
+                              color: project.accent,
+                              borderColor: `${project.accent}35`,
+                              background: `${project.accent}12`,
+                            }}
+                          >
+                            Featured
+                          </span>
+                        )}
+                      </div>
                       <span
-                        className="rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"
-                        style={{ color: project.accent, borderColor: `${project.accent}30`, background: `${project.accent}10` }}
+                        className="rounded-full border px-2.5 py-0.5 text-[10px] font-medium text-[#4B5563] dark:text-slate-300 bg-white/80 dark:bg-slate-800/80"
+                        style={{ borderColor: `${project.accent}30` }}
                       >
-                        Featured
+                        {project.metric}
                       </span>
-                    )}
-                    <span
-                      className="rounded-full border px-2.5 py-1 text-[10px] font-medium text-[#4B5563]"
-                      style={{ borderColor: `${project.accent}25`, background: "rgba(255,255,255,0.7)" }}
-                    >
-                      {project.metric}
-                    </span>
-                  </div>
+                    </div>
 
-                  <div className={isLarge ? "max-w-[76%]" : ""}>
-                    <h3 className={`${isLarge ? "text-lg" : "text-base"} font-bold tracking-tight text-[#1E1B2E]`}>{project.title}</h3>
-                    <p className="mt-1 text-[10px] font-medium" style={{ color: project.accent }}>{project.subtitle}</p>
-                    <p className={`${isLarge ? "line-clamp-3" : "line-clamp-3"} mt-4 text-xs leading-relaxed text-[#4B5563]`}>
+                    {/* Title & Subtitle */}
+                    <h3 className="text-lg font-bold tracking-tight text-[#1E1B2E] dark:text-white">
+                      {project.title}
+                    </h3>
+                    <p
+                      className="mt-1 text-xs font-semibold"
+                      style={{ color: project.accent }}
+                    >
+                      {project.subtitle}
+                    </p>
+
+                    {/* Description */}
+                    <p className="mt-3 text-xs leading-relaxed text-[#4B5563] dark:text-slate-300 line-clamp-3">
                       {project.description}
                     </p>
+
+                    {/* Tags */}
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {project.tags.slice(0, 4).map(tag => (
+                        <span
+                          key={tag}
+                          className="rounded-lg bg-white/90 dark:bg-white/10 px-2.5 py-1 text-[10px] font-medium text-[#4B5563] dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/60"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="mt-5 flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, isLarge ? 4 : 2).map(tag => (
-                      <span key={tag} className="rounded-lg bg-white/80 px-2.5 py-1 text-[10px] text-[#4B5563]" style={{ border: `1px solid ${project.accent}18` }}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
+                  {/* Expanded Content Drawer */}
                   <AnimatePresence initial={false}>
                     {isExpanded && (
                       <motion.div
@@ -253,19 +309,29 @@ export default function Projects() {
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="mt-5 grid gap-3 border-t border-pink-100 pt-5 sm:grid-cols-2">
+                        <div className="mt-5 space-y-3 border-t border-pink-100/80 dark:border-slate-800 pt-4">
                           {[
                             ["Problem", project.details.problem],
                             ["Architecture", project.details.architecture],
                             ["Challenges", project.details.challenges],
-                            ["Key Learnings", project.details.learnings],
+                            ["Learnings", project.details.learnings],
                             ["Tech Stack", project.details.techStack],
                             ["Impact", project.details.impact],
-                            ["Future Improvements", project.details.future],
+                            ["Future", project.details.future],
                           ].map(([label, text]) => (
-                            <div key={label} className={label === "Future Improvements" ? "sm:col-span-2" : ""}>
-                              <h4 className="text-[10px] font-semibold uppercase tracking-[0.16em]" style={{ color: project.accent }}>{label}</h4>
-                              <p className="section-copy mt-1.5 text-xs leading-relaxed">{text}</p>
+                            <div
+                              key={label}
+                              className="rounded-xl bg-slate-50/80 dark:bg-slate-800/40 p-3 border border-pink-100/50 dark:border-pink-900/20"
+                            >
+                              <h4
+                                className="text-[10px] font-bold uppercase tracking-wider"
+                                style={{ color: project.accent }}
+                              >
+                                {label}
+                              </h4>
+                              <p className="mt-1 text-xs leading-relaxed text-[#4B5563] dark:text-slate-300">
+                                {text}
+                              </p>
                             </div>
                           ))}
                         </div>
@@ -273,11 +339,12 @@ export default function Projects() {
                     )}
                   </AnimatePresence>
 
-                  <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-5">
+                  {/* Bottom Action Footer */}
+                  <div className="mt-5 flex flex-wrap items-center gap-2 pt-4 border-t border-slate-100 dark:border-slate-800/60">
                     <button
                       type="button"
                       onClick={() => setExpanded(isExpanded ? "" : project.title)}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-pink-100 bg-white/80 px-3 py-1.5 text-[10px] font-semibold text-[#4B5563] transition hover:border-pink-200 hover:text-pink-600"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-pink-100 dark:border-pink-900/40 bg-white/90 dark:bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-[#4B5563] dark:text-slate-200 transition hover:border-pink-300 dark:hover:border-pink-500 hover:text-pink-600 dark:hover:text-pink-400"
                       aria-expanded={isExpanded}
                     >
                       {isExpanded ? "Close" : "Expand"}
@@ -285,13 +352,25 @@ export default function Projects() {
                         <ChevronDown size={12} />
                       </motion.span>
                     </button>
+
                     {project.githubLink && (
-                      <a href={project.githubLink} target="_blank" rel="noreferrer" className="btn-outline px-3 py-1.5 text-[10px]">
+                      <a
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-outline px-3 py-1.5 text-[11px]"
+                      >
                         <Github size={12} /> GitHub
                       </a>
                     )}
-                    {project.liveLink && (
-                      <a href={project.liveLink} target="_blank" rel="noreferrer" className="btn-primary px-3 py-1.5 text-[10px]">
+
+                    {project.liveLink && !project.liveLink.includes("YOUR_") && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-primary px-3 py-1.5 text-[11px]"
+                      >
                         <ExternalLink size={12} /> Demo
                       </a>
                     )}

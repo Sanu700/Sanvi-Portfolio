@@ -308,3 +308,114 @@ section, nav, footer { position: relative; z-index: 1; }
     scroll-behavior: auto !important;
   }
 }
+
+/* Dark Mode Styles */
+html.dark body {
+  background: #0b0914;
+  color: #f3f4f6;
+}
+
+html.dark body::before {
+  background:
+    radial-gradient(ellipse 42% 30% at 12% 12%, rgba(244,114,182,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 36% 28% at 88% 6%, rgba(168,85,247,0.16) 0%, transparent 62%),
+    radial-gradient(ellipse 34% 28% at 50% 92%, rgba(56,189,248,0.12) 0%, transparent 64%),
+    radial-gradient(ellipse 30% 24% at 78% 68%, rgba(236,72,153,0.10) 0%, transparent 62%),
+    radial-gradient(ellipse 28% 22% at 30% 55%, rgba(192,132,252,0.10) 0%, transparent 58%);
+}
+
+html.dark body::after {
+  opacity: 0.15;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+
+html.dark .bg-page {
+  background: linear-gradient(180deg, #0b0914 0%, #0d0b18 28%, #110d22 58%, #0b0914 100%);
+}
+
+html.dark .projects-section {
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 0%, rgba(244,114,182,0.12) 0%, transparent 58%),
+    radial-gradient(ellipse 50% 40% at 92% 8%, rgba(168,85,247,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 35% at 50% 100%, rgba(56,189,248,0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #0d0a17 0%, #110c22 42%, #0d0a17 100%);
+}
+
+html.dark .glass {
+  background: rgba(22, 18, 36, 0.75);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .glass-hover:hover {
+  background: rgba(30, 25, 48, 0.88);
+  border-color: rgba(244, 114, 182, 0.28);
+  box-shadow: 0 22px 52px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(244, 114, 182, 0.12);
+}
+
+html.dark .project-card {
+  background: linear-gradient(145deg, rgba(24, 20, 39, 0.85) 0%, rgba(16, 13, 27, 0.85) 100%);
+  border-color: rgba(244, 114, 182, 0.16);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+}
+
+html.dark .project-card:hover {
+  border-color: rgba(236, 72, 153, 0.35);
+  box-shadow: 0 22px 60px rgba(236, 72, 153, 0.15), 0 8px 24px rgba(168, 85, 247, 0.12);
+}
+
+html.dark .section-title {
+  color: #f3f4f6;
+}
+
+html.dark .section-copy {
+  color: #9ca3af;
+}
+
+html.dark .btn-outline {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f3f4f6;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark .btn-outline:hover {
+  border-color: rgba(236, 72, 153, 0.5);
+  color: #f472b6;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .nav-link {
+  color: rgba(243, 244, 246, 0.65);
+}
+
+html.dark .nav-link:hover,
+html.dark .nav-link.active {
+  color: #ffffff;
+}
+
+html.dark .soft-gradient-surface {
+  background:
+    linear-gradient(135deg, rgba(24,20,39,0.92), rgba(16,13,27,0.85)),
+    radial-gradient(circle at 14% 10%, rgba(244,114,182,0.12), transparent 36%),
+    radial-gradient(circle at 86% 20%, rgba(125,211,252,0.10), transparent 34%),
+    radial-gradient(circle at 70% 92%, rgba(168,85,247,0.12), transparent 38%);
+}
+
+html.dark .glass-input {
+  background: rgba(22, 18, 36, 0.85);
+  border-color: rgba(244, 114, 182, 0.2);
+  color: #f3f4f6;
+}
+html.dark .glass-input:focus {
+  background: rgba(30, 25, 48, 0.95);
+  border-color: rgba(236, 72, 153, 0.6);
+  box-shadow: 0 0 0 4px rgba(244,114,182,0.18), 0 14px 36px rgba(0,0,0,0.4);
+}
+html.dark .glass-input::placeholder {
+  color: rgba(156, 163, 175, 0.5);
+}
+
+html.dark ::-webkit-scrollbar-track { background: #0b0914; }
+

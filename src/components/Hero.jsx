@@ -46,22 +46,22 @@ export default function HeroSection() {
     >
       {/* Ambient blobs */}
       <div className="absolute w-[420px] h-[420px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(244,114,182,0.10) 0%, transparent 70%)", top: "-12%", left: "-12%", filter: "blur(42px)" }} />
+        style={{ background: "radial-gradient(circle, rgba(244,114,182,0.12) 0%, transparent 70%)", top: "-12%", left: "-12%", filter: "blur(42px)" }} />
       <div className="absolute w-[340px] h-[340px] rounded-full pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(199,210,254,0.22) 0%, transparent 70%)", bottom: "0%", right: "-8%", filter: "blur(44px)" }} />
       <motion.div
-        className="absolute left-[8%] top-[23%] hidden h-12 w-12 rounded-full border border-slate-200 bg-gradient-to-br from-pink-100 via-white to-sky-100 md:block"
+        className="absolute left-[8%] top-[23%] hidden h-12 w-12 rounded-full border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-pink-100 via-white to-sky-100 dark:from-pink-950/40 dark:via-slate-900 dark:to-sky-950/40 md:block"
         animate={{ y: [0, -14, 0], rotate: [0, 8, 0], opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[18%] right-[14%] hidden h-16 w-16 rounded-[1.5rem] border border-slate-200 bg-gradient-to-br from-violet-100 via-white to-amber-100 md:block"
+        className="absolute bottom-[18%] right-[14%] hidden h-16 w-16 rounded-[1.5rem] border border-slate-200 dark:border-slate-800 bg-gradient-to-br from-violet-100 via-white to-amber-100 dark:from-violet-950/40 dark:via-slate-900 dark:to-amber-950/40 md:block"
         animate={{ y: [0, 16, 0], rotate: [8, -5, 8], opacity: [0.75, 1, 0.75] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="absolute left-[15%] top-[36%] text-pink-300/70">✦</div>
-      <div className="absolute right-[9%] top-[28%] text-fuchsia-300/70">✧</div>
-      <div className="absolute bottom-[24%] left-[47%] text-pink-300/60">✦</div>
+      <div className="absolute left-[15%] top-[36%] text-pink-300/70 dark:text-pink-400/50">✦</div>
+      <div className="absolute right-[9%] top-[28%] text-fuchsia-300/70 dark:text-fuchsia-400/50">✧</div>
+      <div className="absolute bottom-[24%] left-[47%] text-pink-300/60 dark:text-pink-400/50">✦</div>
 
       {/* Left — text */}
       <motion.div
@@ -77,7 +77,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#1E1B2E] tracking-[-0.045em]">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-[#1E1B2E] dark:text-white tracking-[-0.045em]">
           Hi, I'm{" "}
           <span className="font-pacifico gradient-text-warm animate-gradient">Sanvi Udhan</span>
         </h1>
@@ -85,7 +85,7 @@ export default function HeroSection() {
         {/* Typing animation */}
         <div className="flex items-center gap-2 justify-center lg:justify-start h-8">
           <span className="text-pink-500 text-base">›</span>
-          <span className="text-[#4B5563] text-base font-medium">{displayed}</span>
+          <span className="text-[#4B5563] dark:text-slate-300 text-base font-medium">{displayed}</span>
           <span className="typing-cursor" />
         </div>
 
@@ -107,14 +107,14 @@ export default function HeroSection() {
           ].map(({ icon, href, label }) => (
             <motion.a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
               whileHover={{ y: -3 }}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-pink-100 bg-white/70 text-[#4B5563] shadow-sm transition-colors duration-300 hover:text-pink-500">
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-pink-100 dark:border-pink-900/40 bg-white/70 dark:bg-white/10 text-[#4B5563] dark:text-slate-200 shadow-sm transition-colors duration-300 hover:text-pink-500 dark:hover:text-pink-400">
               {icon}
             </motion.a>
           ))}
           {/* Stats pills */}
           <div className="flex flex-wrap gap-2 ml-0 sm:ml-2">
-            <span className="glass gradient-border rounded-full px-3 py-1 text-xs text-[#4B5563]">⭐ 6 Stars</span>
-            <span className="glass gradient-border rounded-full px-3 py-1 text-xs text-[#4B5563]">🚀 1K+ Users</span>
+            <span className="glass gradient-border rounded-full px-3 py-1 text-xs text-[#4B5563] dark:text-slate-300">⭐ 6 Stars</span>
+            <span className="glass gradient-border rounded-full px-3 py-1 text-xs text-[#4B5563] dark:text-slate-300">🚀 1K+ Users</span>
           </div>
         </div>
       </motion.div>
@@ -129,9 +129,9 @@ export default function HeroSection() {
         <div className="relative animate-float">
           {/* Outer glow */}
           <div className="absolute inset-0 rounded-[2rem] pointer-events-none"
-            style={{ background: "radial-gradient(circle, rgba(219,39,119,0.14) 0%, transparent 70%)", transform: "scale(1.25)", filter: "blur(22px)" }} />
-          <div className="absolute -right-8 top-8 z-20 hidden max-w-[190px] rotate-3 rounded-3xl border border-slate-200 bg-white/90 p-3 text-left shadow-[0_14px_34px_rgba(15,23,42,0.08)] sm:block">
-            <p className="font-pacifico text-xs leading-5 text-[#DB2777]">
+            style={{ background: "radial-gradient(circle, rgba(219,39,119,0.18) 0%, transparent 70%)", transform: "scale(1.25)", filter: "blur(22px)" }} />
+          <div className="absolute -right-8 top-8 z-20 hidden max-w-[190px] rotate-3 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-[#181428]/90 p-3 text-left shadow-[0_14px_34px_rgba(15,23,42,0.12)] sm:block backdrop-blur-md">
+            <p className="font-pacifico text-xs leading-5 text-[#DB2777] dark:text-pink-400">
               "Code is how I solve problems.<br />
               Creativity is how I make them beautiful."
             </p>
@@ -151,3 +151,4 @@ export default function HeroSection() {
     </motion.section>
   );
 }
+

@@ -29,7 +29,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}>
           <span className="eyebrow">Contact</span>
-          <h2 className="section-title text-3xl md:text-4xl mt-3">
+          <h2 className="section-title text-3xl md:text-4xl mt-3 dark:text-white">
             Let's <span className="gradient-text">Connect</span>
           </h2>
           <p className="section-copy mt-4 max-w-xl mx-auto text-sm">
@@ -40,20 +40,20 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-6">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-            className="glass gradient-border rounded-[1.5rem] p-6 bg-white">
+            className="glass gradient-border rounded-[1.5rem] p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="text-[#4B5563] text-xs uppercase tracking-widest mb-2 block">Name</label>
+                <label className="text-[#4B5563] dark:text-slate-300 text-xs uppercase tracking-widest mb-2 block font-medium">Name</label>
                 <input type="text" name="name" value={form.name} onChange={handleChange}
                   placeholder="Your name" className="glass-input" required />
               </div>
               <div>
-                <label className="text-[#4B5563] text-xs uppercase tracking-widest mb-2 block">Email</label>
+                <label className="text-[#4B5563] dark:text-slate-300 text-xs uppercase tracking-widest mb-2 block font-medium">Email</label>
                 <input type="email" name="email" value={form.email} onChange={handleChange}
                   placeholder="your@email.com" className="glass-input" required />
               </div>
               <div>
-                <label className="text-[#4B5563] text-xs uppercase tracking-widest mb-2 block">Message</label>
+                <label className="text-[#4B5563] dark:text-slate-300 text-xs uppercase tracking-widest mb-2 block font-medium">Message</label>
                 <textarea rows={4} name="message" value={form.message} onChange={handleChange}
                   placeholder="Tell me about the opportunity..."
                   className="glass-input resize-none" required />
@@ -77,20 +77,20 @@ export default function Contact() {
                 whileHover={{ x: 5 }}
                 className="glass glass-hover gradient-border rounded-[1.25rem] p-4 flex items-center gap-3 block"
                 style={{ textDecoration: "none" }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white"
-                  style={{ border: `1px solid ${color}25` }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white dark:bg-slate-900/80"
+                  style={{ border: `1px solid ${color}35` }}>
                   {icon}
                 </div>
                 <div>
-                  <div className="text-[#4B5563] text-xs uppercase tracking-widest">{label}</div>
-                  <div className="text-[#1E1B2E] text-sm mt-0.5">{value}</div>
+                  <div className="text-[#4B5563] dark:text-slate-400 text-xs uppercase tracking-widest">{label}</div>
+                  <div className="text-[#1E1B2E] dark:text-white text-sm font-medium mt-0.5">{value}</div>
                 </div>
               </motion.a>
             ))}
-          
           </motion.div>
         </div>
       </div>
     </section>
   );
 }
+

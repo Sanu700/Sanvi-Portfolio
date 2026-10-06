@@ -49,18 +49,18 @@ export default function ProblemSolving() {
           >
             <div>
               <div className="mb-4 flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-50 text-xl">
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-50 dark:bg-white/10 text-xl">
                   <Sigma size={20} color="#db2777" />
                 </span>
 
-                <h3 className="font-semibold text-[#1E1B2E]">
+                <h3 className="font-semibold text-[#1E1B2E] dark:text-white">
                   Currently grinding DSA
                 </h3>
               </div>
 
               <p className="section-copy text-sm leading-relaxed">
-                Working through core data structures and algorithms patterns :-
-                arrays, trees, graphs, and dynamic programming - with solutions
+                Working through core data structures and algorithms patterns:
+                arrays, trees, graphs, and dynamic programming — with solutions
                 tracked in a dedicated repo and progress logged on LeetCode.
               </p>
             </div>
@@ -96,8 +96,8 @@ export default function ProblemSolving() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="glass glass-hover gradient-border rounded-[1.4rem] p-6 flex h-full flex-col"
           >
-            <h3 className="font-semibold text-[#1E1B2E] mb-5 flex items-center gap-2 text-sm">
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-50">
+            <h3 className="font-semibold text-[#1E1B2E] dark:text-white mb-5 flex items-center gap-2 text-sm">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-slate-50 dark:bg-white/10">
                 <Code2 size={16} color="#7c3aed" />
               </span>
               Topics in focus
@@ -108,12 +108,7 @@ export default function ProblemSolving() {
                 <motion.span
                   key={topic}
                   whileHover={{ scale: 1.04, y: -2 }}
-                  className="skill-pill text-xs px-4 py-2 rounded-full font-medium"
-                  style={{
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(226,232,240,0.95)",
-                    color: "#4B5563",
-                  }}
+                  className="skill-pill text-xs px-4 py-2 rounded-full font-medium border border-pink-100 dark:border-pink-900/30 bg-white/70 dark:bg-white/5 text-[#4B5563] dark:text-slate-200"
                 >
                   {topic}
                 </motion.span>
