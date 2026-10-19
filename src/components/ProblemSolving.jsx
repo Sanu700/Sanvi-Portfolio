@@ -12,6 +12,7 @@ const topics = [
   "Dynamic Programming",
   "Greedy Algorithm",
   "Linked Lists",
+  "Heaps & Priority Queues",
 ];
 
 export default function ProblemSolving() {
