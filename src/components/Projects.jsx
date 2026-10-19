@@ -6,14 +6,14 @@ const filters = ["All", "Featured", "Full Stack", "Backend", "AI / ML", "Product
 
 const projects = [
   {
-    title: "ToxicBuddy",
+    title: "VibeCheck",
     subtitle: "Live Product · NLP Moderation",
     impact: "Deployed conversational toxicity analysis platform for detecting and reducing harmful communication.",
     description: "End-to-end NLP moderation platform that analyzes messages and conversations, identifies toxic patterns, provides user-level insights, and suggests more constructive rewrites.",
     tags: ["React", "Python", "FastAPI", "scikit-learn"],
     categories: ["Featured", "AI / ML", "Full Stack"],
-    liveLink: "YOUR_TOXICBUDDY_LIVE_URL",
-    githubLink: "https://github.com/Sanu700/ToxicBuddy",
+    liveLink: "https://vibee-check.vercel.app/",
+    githubLink: "https://github.com/Sanu700/Vibecheck",
     metric: "🛡️ Real-time Toxicity Analysis",
     featured: true,
     accent: "#F97316",
@@ -58,7 +58,7 @@ const projects = [
     categories: ["Featured", "Full Stack", "Backend"],
     liveLink: "https://repo-lens-ivory.vercel.app",
     githubLink: "https://github.com/Sanu700/RepoLens",
-    metric: "⭐ 6 Stars",
+    metric: "⭐ 7 Stars",
     featured: true,
     accent: "#BE185D",
     details: {
