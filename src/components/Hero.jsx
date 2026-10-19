@@ -113,7 +113,7 @@ export default function HeroSection() {
           ))}
           {/* Stats pills */}
           <div className="flex flex-wrap gap-2 ml-0 sm:ml-2">
-            <span className="glass gradient-border rounded-full px-3 py-1 text-xs text-[#4B5563] dark:text-slate-300">⭐ 6 Stars</span>
+            <span className="glass gradient-border rounded-full px-3 py-1 text-xs text-[#4B5563] dark:text-slate-300">⭐ 7 Stars</span>
             <span className="glass gradient-border rounded-full px-3 py-1 text-xs text-[#4B5563] dark:text-slate-300">🚀 1K+ Users</span>
           </div>
         </div>
